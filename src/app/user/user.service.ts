@@ -12,7 +12,12 @@ export class UserService {
 
   // Creates a new user to the database
   createUser(user: User) {
-    return this.http.post('/user', user)
+    return this.http.post('/signup', user)
+    .map(data => data.json()).toPromise();
+  }
+  // Check if a user has an account
+  loginUser(user: User) {
+    return this.http.get('/login', user)
     .map(data => data.json()).toPromise();
   }
   // Gets a user from the database

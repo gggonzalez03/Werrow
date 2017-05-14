@@ -10,6 +10,7 @@ import { BorrowRequestService } from './borrow-request/borrow-request.service';
 import { BorrowRequestComponent } from './borrow-request/borrow-request.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { CreatePostComponent } from './borrow-request/create-post/create-post.component';
+import { LoginUserComponent } from './user/login-user/login-user.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreatePostComponent } from './borrow-request/create-post/create-post.co
     UserComponent,
     BorrowRequestComponent,
     CreateUserComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,
