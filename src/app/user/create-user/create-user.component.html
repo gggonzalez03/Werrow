@@ -1,0 +1,17 @@
+<form (submit)="createUser()">
+  <fieldset class="form-group">
+    <input type="text" class="form-control" placeholder="First name" name="first_name"
+    [(ngModel)]="newUser.first_name">
+  </fieldset>
+  <fieldset class="form-group">
+    <input type="text" class="form-control" placeholder="Last name" name="last_name"
+    [(ngModel)]="newUser.last_name">
+  </fieldset>
+  <fieldset class="form-group">
+    <input type="text" class="form-control" placeholder="Email" name="email"
+    [(ngModel)]="newUser.email"/>
+  </fieldset>
+  <fieldset>
+    <input class="btn form-control" type="submit"/>
+  </fieldset>
+</form>

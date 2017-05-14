@@ -1,0 +1,14 @@
+<form (submit)="createBorrowPost()">
+  <fieldset class="form-group">
+        <input type="text" class="form-control" placeholder="ex. Laptop, Coffee Maker, etc."
+        name="item_name" [(ngModel)]="newUserPost.item_name">
+  </fieldset>
+  <fieldset class="form-group">
+        <input type="text" class="form-control" placeholder="Why?(Optional)"
+        name="reason" [(ngModel)]="newUserPost.reason">
+  </fieldset>
+  <fieldset class="form-group">
+        <input type="submit" class="btn form-control">
+  </fieldset>
+
+</form>
