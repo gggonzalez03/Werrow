@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login-user',
@@ -10,16 +11,13 @@ export class LoginUserComponent implements OnInit {
 
   userLogin = new User();
 
-  @Output()
-  loginUserEvent = new EventEmitter();
-
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
   loginUser() {
-    this.loginUserEvent.emit(this.userLogin);
+    this.userService.loginUser(this.userLogin);
     this.userLogin = new User();
   }
 

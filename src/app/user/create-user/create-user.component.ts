@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service'
 
 @Component({
   selector: 'app-create-user',
@@ -9,17 +10,20 @@ import { User } from '../user';
 export class CreateUserComponent implements OnInit {
   newUser = new User();
 
-  @Output()
-  createNewUserEvent = new EventEmitter();
-
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
   createUser() {
-    this.createNewUserEvent.emit(this.newUser);
+    console.log(this.userService.createUser(this.newUser));
     this.newUser = new User();
-  }
+    // TODO: uncomment this when connected to the database
+    //this.userService.createUser(user);
+    //.then(status => console.log(status))
+    //.catch(err => console.log(err));
 
+    // Login the user after account creation
+    //this.loginUser(user);
+  }
 }

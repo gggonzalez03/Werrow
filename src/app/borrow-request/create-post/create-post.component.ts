@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
 import { BorrowRequest } from '../borrow-request';
 import { User } from '../../user/user';
+import { BorrowRequestService } from '../borrow-request.service'
 
 @Component({
   selector: 'app-create-post',
@@ -9,18 +11,19 @@ import { User } from '../../user/user';
 })
 export class CreatePostComponent implements OnInit {
 
-  @Input() user;
-  @Output() createPostEvent = new EventEmitter();
-
   newUserPost = new BorrowRequest();
+  loggedInUser = new User();
 
-  constructor() { }
+  constructor(
+    private borrowRequestService: BorrowRequestService,
+  ) { }
 
   ngOnInit() {
+    this.loggedInUser = this.borrowRequestService.loggedInUser;
   }
 
-  createBorrowPost(user: User) {
-    this.createPostEvent.emit(this.newUserPost);
+  createBorrowPost() {
+    console.log(this.borrowRequestService.createBorrowPost(this.newUserPost, this.loggedInUser));
     this.newUserPost = new BorrowRequest();
   }
 

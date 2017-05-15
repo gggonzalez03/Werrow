@@ -2,7 +2,5 @@
 (click)="postBorrowMode = !postBorrowMode">+</button>
 
 <app-create-post
-  *ngIf=postBorrowMode
-  [user]="user"
-  (createPostEvent)=createBorrowPost($event)>
+  *ngIf=postBorrowMode>
 </app-create-post>
