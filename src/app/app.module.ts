@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 import { UserService } from './user/user.service';
 import { BorrowRequestService } from './borrow-request/borrow-request.service';
 import { BorrowRequestComponent } from './borrow-request/borrow-request.component';
@@ -17,7 +16,6 @@ import { LoginUserComponent } from './user/login-user/login-user.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     BorrowRequestComponent,
     CreateUserComponent,
     CreatePostComponent,
