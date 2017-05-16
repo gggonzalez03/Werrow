@@ -19,11 +19,11 @@ export class CreatePostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loggedInUser = this.borrowRequestService.loggedInUser;
   }
 
   createBorrowPost() {
     console.log(this.borrowRequestService.createBorrowPost(this.newUserPost, this.loggedInUser));
+    console.log(sessionStorage.getItem("currentUserId"));
     this.newUserPost = new BorrowRequest();
   }
 

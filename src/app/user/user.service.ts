@@ -26,8 +26,6 @@ export class UserService {
   createUser(user: User) {
     // Add user
     this.users.push(user);
-    // TODO: If the user has successfully been added,
-    // login the user and redirect to the homepage
     this.loginUser(user);
     return this.users;
 
@@ -44,7 +42,7 @@ export class UserService {
 
      if(userExists[0]) {
        this.loggedInUser = userExists[0];
-       console.log(userExists[0]);
+       sessionStorage.setItem("currentUserId", String(this.loggedInUser._id));
        this.router.navigate(['/home']);
      }
     // TODO: uncomment this when connected to the database
