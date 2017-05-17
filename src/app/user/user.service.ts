@@ -15,19 +15,13 @@ export class UserService {
 
   users: Array<User> = [];
 
-  private loggedInUser = new User();
-
-  // Get the logged in user
-  getLoggedInUser() {
-    return this.loggedInUser;
-  }
+  public loggedInUser = new User();
 
   // Creates a new user to the database
   createUser(user: User) {
     // Add user
     this.users.push(user);
     this.loginUser(user);
-    return this.users;
 
     // TODO: uncomment this when connected to the database
     //return this.http.post('/signup', user)

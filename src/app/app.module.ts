@@ -11,6 +11,7 @@ import { BorrowRequestComponent } from './borrow-request/borrow-request.componen
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { CreatePostComponent } from './borrow-request/create-post/create-post.component';
 import { LoginUserComponent } from './user/login-user/login-user.component';
+import { ShowPostComponent } from './borrow-request/show-post/show-post.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { LoginUserComponent } from './user/login-user/login-user.component';
     BorrowRequestComponent,
     CreateUserComponent,
     CreatePostComponent,
-    LoginUserComponent
+    LoginUserComponent,
+    ShowPostComponent
   ],
   imports: [
     BrowserModule,

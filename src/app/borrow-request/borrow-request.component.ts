@@ -8,20 +8,11 @@ import { User } from '../user/user';
 })
 export class BorrowRequestComponent implements OnInit {
 
-  @Input() user;
-  borrowPosts: Array<BorrowRequest> = [];
-
   postBorrowMode = false;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  createBorrowPost(borrowRequest: BorrowRequest) {
-    borrowRequest.user_id = this.user._id;
-    this.borrowPosts.push(borrowRequest);
-    console.log(this.borrowPosts);
   }
 
 }
