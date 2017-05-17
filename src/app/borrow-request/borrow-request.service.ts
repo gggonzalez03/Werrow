@@ -19,10 +19,19 @@ export class BorrowRequestService {
     //.map(data => data.json()).toPromise();
   }
 
+  // Functions below this will be connected to the API
+  // which is connected to the database
+
   // Gets all the posts
   getAllBorrowPosts() {
     return this.borrowPosts;
   }
+
+  // Gets the user who owns a certain post
+  getUserByPostId(postId: number) {
+    return new User(1, "first", "last", "email", "pic");
+  }
+
   // Gets a user from the database
   getUser(borrowPost: BorrowRequest) {
     return this.http.get('/post/:id', borrowPost)

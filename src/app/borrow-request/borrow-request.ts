@@ -4,6 +4,7 @@ export class BorrowRequest {
     public item_name: string = "",
     public reason: string ="",
     public time_stamp: number = Date.now(),
+    public time_ago: string = "",
     public satisfied: boolean = false,
     public user_id: number = 0,
   ){}

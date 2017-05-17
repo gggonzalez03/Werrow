@@ -2,10 +2,13 @@
   <table class="table">
     <tr *ngFor="let post of showAllBorrowPosts()" name="borrowPosts">
       <p>
-        Item Name: {{ post.item_name}} {{ i }}
+        Item Name: {{ post.item_name}}
       </p>
       <p>
-        User: {{ post.user_id }}
+        User: {{ getUserByPostId(post.user_id).first_name }}
+      </p>
+      <p>
+        Time_ago: {{ post.time_ago }}
       </p>
     </tr>
   </table>
