@@ -1,8 +1,8 @@
 <div class="table-responsive">
   <table class="table">
-    <tr *ngFor="let post of borrowPosts" name="borrowPosts">
+    <tr *ngFor="let post of showAllBorrowPosts()" name="borrowPosts">
       <p>
-        Item Name: {{ post.item_name }}
+        Item Name: {{ post.item_name}} {{ i }}
       </p>
       <p>
         User: {{ post.user_id }}
