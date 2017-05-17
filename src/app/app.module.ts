@@ -12,6 +12,8 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
 import { CreatePostComponent } from './borrow-request/create-post/create-post.component';
 import { LoginUserComponent } from './user/login-user/login-user.component';
 import { ShowPostComponent } from './borrow-request/show-post/show-post.component';
+import { UserControlComponent } from './user/user-control/user-control.component';
+import { LogoutUserComponent } from './user/logout-user/logout-user.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ShowPostComponent } from './borrow-request/show-post/show-post.componen
     CreateUserComponent,
     CreatePostComponent,
     LoginUserComponent,
-    ShowPostComponent
+    ShowPostComponent,
+    UserControlComponent,
+    LogoutUserComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,10 @@ import { ShowPostComponent } from './borrow-request/show-post/show-post.componen
       {
         path: 'login',
         component: LoginUserComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutUserComponent
       },
       {
         path: 'home',

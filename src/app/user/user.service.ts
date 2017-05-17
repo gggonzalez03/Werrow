@@ -16,7 +16,7 @@ export class UserService {
 
   users: Array<User> = [];
 
-  public loggedInUser = new User();
+  public loggedInUser: User;
 
   // Creates a new user to the database
   createUser(user: User) {
@@ -47,6 +47,12 @@ export class UserService {
     // TODO: uncomment this when connected to the database
     //return this.http.get('/login', user)
     //.map(data => data.json()).toPromise();
+  }
+
+  // Logs user out
+  logoutUser() {
+    this.loggedInUser = null;
+    this.router.navigate(['/login']);
   }
 
   // Gets a user from the database

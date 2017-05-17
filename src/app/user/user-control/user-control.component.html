@@ -1,0 +1,7 @@
+<nav *ngIf="!isUserLoggedIn()">
+  <a routerLink="/login" routerLinkActive="active">login</a>
+  <a routerLink="/signup" routerLinkActive="active">sign up</a>
+</nav>
+<nav *ngIf="isUserLoggedIn()">
+  <a routerLink="/logout" routerLinkActive="active">logout</a>
+</nav>

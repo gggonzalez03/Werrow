@@ -19,7 +19,6 @@ export class CreateUserComponent implements OnInit {
   // user to the database
   createUser() {
     this.userService.createUser(this.newUser);
-    console.log(this.userService.users);
     this.newUser = new User();
     // TODO: uncomment this when connected to the database
     //this.userService.createUser(user);
