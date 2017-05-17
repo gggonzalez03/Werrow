@@ -8,8 +8,6 @@ import { User } from '../user/user';
 })
 export class BorrowRequestComponent implements OnInit {
 
-  postBorrowMode = false;
-
   constructor() { }
 
   ngOnInit() {
