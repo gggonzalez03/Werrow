@@ -10,11 +10,15 @@ import { BorrowRequest } from '../borrow-request';
 export class ShowPostComponent implements OnInit {
 
   constructor(private borrowRequestService: BorrowRequestService) { }
+  
   borrowPosts: Array<BorrowRequest> = [];
+
   ngOnInit() {
     this.showAllBorrowPosts();
   }
 
+  // Gets all posts by asking BorrowRequestService to look up
+  // the database
   showAllBorrowPosts() {
     this.borrowPosts = this.borrowRequestService.getAllBorrowPosts();
   }

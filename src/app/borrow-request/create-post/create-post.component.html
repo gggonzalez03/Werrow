@@ -2,8 +2,10 @@
   <a routerLink="/login" routerLinkActive="active">login</a>
   <a routerLink="/signup" routerLinkActive="active">sign up</a>
 </nav>
+
 <button type="button" class="btn" name="post_borrow_request"
 (click)="postBorrowMode = !postBorrowMode">+</button>
+
 <form *ngIf=postBorrowMode (submit)="createBorrowPost()">
   <fieldset class="form-group">
         <input type="text" class="form-control" placeholder="ex. Laptop, Coffee Maker, etc."

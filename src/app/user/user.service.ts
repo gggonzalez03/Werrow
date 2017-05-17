@@ -11,7 +11,8 @@ export class UserService {
 
   constructor(
     private http: Http,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   users: Array<User> = [];
 
@@ -21,19 +22,23 @@ export class UserService {
   createUser(user: User) {
     // Add user
     this.users.push(user);
+    // Login the user once created
     this.loginUser(user);
 
     // TODO: uncomment this when connected to the database
     //return this.http.post('/signup', user)
     //.map(data => data.json()).toPromise();
   }
+
   // Check if a user has an account
   loginUser(user: User) {
-    // Check if the user exists in the array
+    // Check if the user exists
      var userExists = this.users.filter(function(users) {
        return users.email == user.email;
      });
 
+     // Set loggedInUser if the user exists
+     // and redirect to the homepage
      if(userExists[0]) {
        this.loggedInUser = userExists[0];
        sessionStorage.setItem("currentUserId", String(this.loggedInUser._id));
@@ -43,6 +48,7 @@ export class UserService {
     //return this.http.get('/login', user)
     //.map(data => data.json()).toPromise();
   }
+
   // Gets a user from the database
   getUser(user: User) {
 

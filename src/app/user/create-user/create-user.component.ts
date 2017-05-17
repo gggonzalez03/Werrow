@@ -15,6 +15,8 @@ export class CreateUserComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Creates user by asking UserService to add
+  // user to the database
   createUser() {
     this.userService.createUser(this.newUser);
     console.log(this.userService.users);

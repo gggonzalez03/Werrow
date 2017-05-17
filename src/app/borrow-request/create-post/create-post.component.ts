@@ -23,6 +23,8 @@ export class CreatePostComponent implements OnInit {
   newUserPost = new BorrowRequest();
   loggedInUserId: number;
 
+  // Creates a new post by asking BorrowRequestService to add
+  // the post to the database
   createBorrowPost() {
     this.loggedInUserId = Number(sessionStorage.getItem("currentUserId"));
     this.borrowRequestService.createBorrowPost(this.newUserPost, this.loggedInUserId);
