@@ -7,6 +7,7 @@ import { RouterModule, Routes }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserService } from './user/user.service';
 import { BorrowRequestService } from './borrow-request/borrow-request.service';
+import { GoogleMapService } from './google-map/google-map.service';
 import { BorrowRequestComponent } from './borrow-request/borrow-request.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { CreatePostComponent } from './borrow-request/create-post/create-post.component';
@@ -52,7 +53,10 @@ import { GoogleMapComponent } from './google-map/google-map.component';
       }
     ])
   ],
-  providers: [UserService, BorrowRequestService],
+  providers: [
+    UserService,
+    BorrowRequestService,
+    GoogleMapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router }  from '@angular/router';
 import { User } from './user';
+import { Address } from './address';
 
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise';
@@ -9,14 +10,12 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
 
+  users: Array<User> = [];
+
   constructor(
     private http: Http,
     private router: Router
   ) { }
-
-  users: Array<User> = [];
-
-  public loggedInUser: User;
 
   // Creates a new user to the database
   createUser(user: User) {
@@ -40,8 +39,7 @@ export class UserService {
      // Set loggedInUser if the user exists
      // and redirect to the homepage
      if(userExists[0]) {
-       this.loggedInUser = userExists[0];
-       sessionStorage.setItem("currentUserId", String(this.loggedInUser._id));
+       sessionStorage.setItem("currentUserId", String(user._id));
        this.router.navigate(['/home']);
      }
     // TODO: uncomment this when connected to the database
@@ -51,8 +49,19 @@ export class UserService {
 
   // Logs user out
   logoutUser() {
-    this.loggedInUser = null;
+    sessionStorage.removeItem("currentUserId");
     this.router.navigate(['/login']);
+  }
+
+  // Validate the logged in user
+  isUserValidLogin() {
+    // Use API validation for session tokens
+    if(sessionStorage.getItem("currentUserId")) {
+      return sessionStorage.getItem("currentUserId");
+    }
+    else {
+      return false;
+    }
   }
 
   // Gets a user from the database

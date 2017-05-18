@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import { BorrowRequest } from '../borrow-request';
-import { User } from '../../user/user';
 import { BorrowRequestService } from '../borrow-request.service'
 
 @Component({
@@ -11,22 +10,22 @@ import { BorrowRequestService } from '../borrow-request.service'
 })
 export class CreatePostComponent implements OnInit {
 
+  postBorrowMode = false;
+  newUserPost = new BorrowRequest();
+  loggedInUserId: number;
+
   constructor(
     private borrowRequestService: BorrowRequestService
   ) { }
 
   ngOnInit() {
+    // TODO: Validate user with tokens
+    this.loggedInUserId = Number(this.borrowRequestService.isUserValidLogin());
   }
-
-  postBorrowMode = false;
-
-  newUserPost = new BorrowRequest();
-  loggedInUserId: number;
 
   // Creates a new post by asking BorrowRequestService to add
   // the post to the database
   createBorrowPost() {
-    this.loggedInUserId = Number(sessionStorage.getItem("currentUserId"));
     this.borrowRequestService.createBorrowPost(this.newUserPost, this.loggedInUserId);
     this.postBorrowMode = false;
     this.newUserPost = new BorrowRequest();

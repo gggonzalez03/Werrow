@@ -14,7 +14,7 @@ export class UserControlComponent implements OnInit {
   }
 
   isUserLoggedIn() {
-    if(this.userService.loggedInUser) {
+    if(this.userService.isUserValidLogin()) {
       return true;
     }
     else {

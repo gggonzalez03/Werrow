@@ -8,6 +8,7 @@ import { UserService } from '../user.service'
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+  
   newUser = new User();
 
   constructor(private userService: UserService) { }

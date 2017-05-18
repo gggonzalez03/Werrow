@@ -32,6 +32,17 @@ export class BorrowRequestService {
     return new User(1, "first", "last", "email", "pic");
   }
 
+  // Validate the logged in user
+  isUserValidLogin() {
+    // Use API validation for session tokens
+    if(sessionStorage.getItem("currentUserId")) {
+      return sessionStorage.getItem("currentUserId");
+    }
+    else {
+      return null;
+    }
+  }
+
   // Gets a user from the database
   getUser(borrowPost: BorrowRequest) {
     return this.http.get('/post/:id', borrowPost)
