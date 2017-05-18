@@ -10,7 +10,9 @@ import timeago from 'timeago.js';
 })
 export class ShowPostComponent implements OnInit {
 
-  constructor(private borrowRequestService: BorrowRequestService) { }
+  constructor(
+    private borrowRequestService: BorrowRequestService
+  ) { }
 
   timeInstance = timeago();
   borrowPosts: Array<BorrowRequest> = [];
@@ -21,7 +23,6 @@ export class ShowPostComponent implements OnInit {
   // Gets all posts by asking BorrowRequestService to look up
   // the database
   showAllBorrowPosts() {
-
     this.borrowPosts = this.borrowRequestService.getAllBorrowPosts();
     this.borrowPosts.forEach(post => {
         post.time_ago = this.timeInstance.format(post.time_stamp);

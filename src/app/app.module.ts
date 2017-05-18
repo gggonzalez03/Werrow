@@ -14,6 +14,7 @@ import { LoginUserComponent } from './user/login-user/login-user.component';
 import { ShowPostComponent } from './borrow-request/show-post/show-post.component';
 import { UserControlComponent } from './user/user-control/user-control.component';
 import { LogoutUserComponent } from './user/logout-user/logout-user.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LogoutUserComponent } from './user/logout-user/logout-user.component';
     LoginUserComponent,
     ShowPostComponent,
     UserControlComponent,
-    LogoutUserComponent
+    LogoutUserComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
