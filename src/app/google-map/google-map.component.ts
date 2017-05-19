@@ -11,10 +11,9 @@ import { Address } from '../user/address'
 export class GoogleMapComponent implements OnInit {
 
   loggedInUserId: number;
-  userAnswer: boolean;
-  mapSource: string;
+  //userAnswer: boolean;
 
-  @Input() postId: number;
+  @Input() address: Address;
 
 
   constructor(
@@ -29,7 +28,7 @@ export class GoogleMapComponent implements OnInit {
   }
   //mapSource = "//www.google.com/maps/embed/v1/place?q=Harrods,Brompton%20Rd,%20UK&zoom=17&key=AIzaSyCRxEH46LiEj20I32r-QccBR_X8MHpA0iM";
 
-  askUserLocation() {
+/*  askUserLocation() {
     this.userAnswer = confirm("Werrow wants to use your location.");
 
     if(this.userAnswer) {
@@ -37,21 +36,17 @@ export class GoogleMapComponent implements OnInit {
         console.log(position.coords.latitude);
       });
     }
-  }
-
-  getAddressByPostId(postId: number) {
-      return this.googleMapService.getAddressByPostId(postId);
-  }
+  }*/
 
   mapUrl(address: Address) {
-    return this.mapSource = `//www.google.com/maps/embed/v1/place?q=`
-    + address.street + ` ` + address.city + `` + address.state + ` ` + address.zip_code
+    return `//www.google.com/maps/embed/v1/place?q=`
+    + address.street + ` ` + address.city + ` ` + address.state + ` ` + address.zip_code
     +`&zoom=17
     &key=AIzaSyCRxEH46LiEj20I32r-QccBR_X8MHpA0iM`;
   }
 
   // Sanitizes the URL for safe injection in the HTML
   mapSourceSanitized() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.mapUrl(this.getAddressByPostId(this.postId)));
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.mapUrl(this.address));
   }
 }

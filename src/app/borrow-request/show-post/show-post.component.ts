@@ -15,7 +15,6 @@ export class ShowPostComponent implements OnInit {
   ) { }
 
   timeInstance = timeago();
-  borrowPosts: Array<BorrowRequest> = [];
 
   ngOnInit() {
   }
@@ -23,12 +22,12 @@ export class ShowPostComponent implements OnInit {
   // Gets all posts by asking BorrowRequestService to look up
   // the database
   showAllBorrowPosts() {
-    this.borrowPosts = this.borrowRequestService.getAllBorrowPosts();
-    this.borrowPosts.forEach(post => {
+    var borrowPosts = this.borrowRequestService.getAllBorrowPosts();
+    borrowPosts.forEach(post => {
         post.time_ago = this.timeInstance.format(post.time_stamp);
     });
 
-    return this.borrowPosts.sort((a, b) => {
+    return borrowPosts.sort((a, b) => {
       return b.time_stamp-a.time_stamp;
     });
   }
@@ -38,18 +37,19 @@ export class ShowPostComponent implements OnInit {
     return this.borrowRequestService.getUserByPostId(postId);
   }
 
-  getBorrowPostById(postId: number) {
-    return this.borrowRequestService.getBorrowPostById(postId);
-  }
-
   mapHideAllShowOne(postId: number) {
-    this.borrowPosts.forEach((post) => {
+    var mapShowPost: BorrowRequest;
+    var borrowPosts = this.borrowRequestService.getAllBorrowPosts();
+    borrowPosts.forEach((post) => {
       if (post._id != postId) {
         post.map_hidden = true;
       }
+      else {
+        mapShowPost = post;
+      }
     });
 
-    this.getBorrowPostById(postId).map_hidden = !this.getBorrowPostById(postId).map_hidden;
+    mapShowPost.map_hidden = !mapShowPost.map_hidden;
   }
 
 }

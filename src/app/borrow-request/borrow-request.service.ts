@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { User } from '../user/user';
+import { Address } from '../user/address';
 import { BorrowRequest } from './borrow-request'
 
 @Injectable()
@@ -29,20 +30,9 @@ export class BorrowRequestService {
 
   // Gets the user who owns a certain post
   getUserByPostId(postId: number) {
-    return new User(1, "first", "last", "email", "pic");
-  }
-
-  getBorrowPostById(postId: number) {
-    var borrowPost = this.borrowPosts.filter(function(posts) {
-      if (posts._id == postId) {
-        return posts;
-      }
-      else {
-        return false;
-      }
-    });
-
-    return borrowPost[0];
+    return new User(1, "first", "last", "email", "pic", new Address(
+      0, "2415 Rinconada Dr.", "San+Jose", "California", "95125", 0
+    ));
   }
 
   // Validate the logged in user
@@ -54,11 +44,5 @@ export class BorrowRequestService {
     else {
       return null;
     }
-  }
-
-  // Gets a user from the database
-  getUser(borrowPost: BorrowRequest) {
-    return this.http.get('/post/:id', borrowPost)
-    .map(data => data.json()).toPromise();
   }
 }
