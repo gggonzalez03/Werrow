@@ -10,10 +10,10 @@
       <p>
         Time_ago: {{ post.time_ago }}
       </p>
-      <p>
+      <p (click)="mapHideAllShowOne(post._id)">
         Location: n miles
       </p>
-      <app-google-map></app-google-map>
+      <app-google-map [class.hidden]="post.map_hidden" [postId]=post._id></app-google-map>
     </tr>
   </table>
 </div>

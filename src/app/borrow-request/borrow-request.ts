@@ -5,6 +5,7 @@ export class BorrowRequest {
     public reason: string ="",
     public time_stamp: number = Date.now(),
     public time_ago: string = "",
+    public map_hidden: boolean = true,
     public satisfied: boolean = false,
     public user_id: number = 0,
   ){}

@@ -32,6 +32,19 @@ export class BorrowRequestService {
     return new User(1, "first", "last", "email", "pic");
   }
 
+  getBorrowPostById(postId: number) {
+    var borrowPost = this.borrowPosts.filter(function(posts) {
+      if (posts._id == postId) {
+        return posts;
+      }
+      else {
+        return false;
+      }
+    });
+
+    return borrowPost[0];
+  }
+
   // Validate the logged in user
   isUserValidLogin() {
     // Use API validation for session tokens

@@ -54,5 +54,4 @@ export class GoogleMapComponent implements OnInit {
   mapSourceSanitized() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.mapUrl(this.getAddressByPostId(this.postId)));
   }
-
 }

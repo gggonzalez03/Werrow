@@ -38,4 +38,18 @@ export class ShowPostComponent implements OnInit {
     return this.borrowRequestService.getUserByPostId(postId);
   }
 
+  getBorrowPostById(postId: number) {
+    return this.borrowRequestService.getBorrowPostById(postId);
+  }
+
+  mapHideAllShowOne(postId: number) {
+    this.borrowPosts.forEach((post) => {
+      if (post._id != postId) {
+        post.map_hidden = true;
+      }
+    });
+
+    this.getBorrowPostById(postId).map_hidden = !this.getBorrowPostById(postId).map_hidden;
+  }
+
 }
