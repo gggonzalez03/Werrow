@@ -15,6 +15,7 @@ export class ShowPostComponent implements OnInit {
   ) { }
 
   timeInstance = timeago();
+  idToShowMapOf: number;
 
   ngOnInit() {
   }
@@ -32,24 +33,13 @@ export class ShowPostComponent implements OnInit {
     });
   }
 
+  toShowMap(postId: number) {
+    this.idToShowMapOf = postId;
+  }
+
   // Gets the user who owns the post by post id
   getUserByPostId(postId: number) {
     return this.borrowRequestService.getUserByPostId(postId);
-  }
-
-  mapHideAllShowOne(postId: number) {
-    var mapShowPost: BorrowRequest;
-    var borrowPosts = this.borrowRequestService.getAllBorrowPosts();
-    borrowPosts.forEach((post) => {
-      if (post._id != postId) {
-        post.map_hidden = true;
-      }
-      else {
-        mapShowPost = post;
-      }
-    });
-
-    mapShowPost.map_hidden = !mapShowPost.map_hidden;
   }
 
 }

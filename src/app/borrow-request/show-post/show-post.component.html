@@ -10,10 +10,10 @@
       <p>
         Time_ago: {{ post.time_ago }}
       </p>
-      <p (click)="mapHideAllShowOne(post._id)">
+      <p (click)=toShowMap(post._id)>
         Location: n miles
       </p>
-      <app-google-map [class.hidden]="post.map_hidden" [address]=getUserByPostId(post.user_id).address></app-google-map>
+      <app-google-map *ngIf="idToShowMapOf == post._id" [address]=getUserByPostId(post.user_id).address></app-google-map>
     </tr>
   </table>
 </div>
