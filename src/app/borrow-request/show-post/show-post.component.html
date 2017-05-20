@@ -10,7 +10,7 @@
       <p>
         Time_ago: {{ post.time_ago }}
       </p>
-      <p (click)=toShowMap(post._id)>
+      <p (mouseenter)=toShowMap(post._id) (click)="idToShowMapOf = null">
         Location: n miles
       </p>
       <app-google-map *ngIf="idToShowMapOf == post._id" [address]=getUserByPostId(post.user_id).address></app-google-map>
