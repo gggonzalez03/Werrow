@@ -1,17 +1,18 @@
-<form (submit)="createUser()">
-  <fieldset class="form-group">
-    <input type="text" class="form-control" placeholder="First name" name="first_name"
-    [(ngModel)]="newUser.first_name">
-  </fieldset>
-  <fieldset class="form-group">
-    <input type="text" class="form-control" placeholder="Last name" name="last_name"
-    [(ngModel)]="newUser.last_name">
-  </fieldset>
-  <fieldset class="form-group">
-    <input type="text" class="form-control" placeholder="Email" name="email"
-    [(ngModel)]="newUser.email"/>
-  </fieldset>
-  <fieldset>
-    <input class="btn form-control" type="submit" value="Sign Up"/>
-  </fieldset>
-</form>
+<div class="login-clean">
+    <form (submit)="createUser()">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration"><i class="icon ion-ios-contact-outline" style="color:rgb(67,184,184);"></i></div>
+        <div class="form-group">
+            <input [(ngModel)]="newUser.name" class="form-control" type="text" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input [(ngModel)]="newUser.email" class="form-control" type="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input [(ngModel)]="newUser.password" class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(67,184,184);">Sign Up</button>
+        </div>
+    </form>
+</div>

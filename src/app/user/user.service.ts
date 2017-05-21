@@ -33,7 +33,7 @@ export class UserService {
   loginUser(user: User) {
     // Check if the user exists
      var userExists = this.users.filter(function(users) {
-       return users.email == user.email;
+       return users.email == user.email && users.password == user.password;
      });
 
      // Set loggedInUser if the user exists

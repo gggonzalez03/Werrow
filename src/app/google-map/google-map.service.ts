@@ -10,7 +10,7 @@ export class GoogleMapService {
   private getCurrentUser() {
     // TODO: Connect to the database and retrieve the user
     return new User(
-      0, "first", "last", "email", "pic", new Address(
+      0, "name", "email", "password", "pic", new Address(
         0, "2415 Rinconada Dr.", "San+Jose", "California", "95125", 0
       ));
   }

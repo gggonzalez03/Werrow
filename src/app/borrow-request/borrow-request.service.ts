@@ -30,7 +30,7 @@ export class BorrowRequestService {
 
   // Gets the user who owns a certain post
   getUserByPostId(postId: number) {
-    return new User(1, "first", "last", "email", "pic", new Address(
+    return new User(1, "name", "email", "password", "pic", new Address(
       0, "2415 Rinconada Dr.", "San+Jose", "California", "95125", 0
     ));
   }
