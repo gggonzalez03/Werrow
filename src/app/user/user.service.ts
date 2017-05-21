@@ -53,17 +53,6 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
-  // Validate the logged in user
-  isUserValidLogin() {
-    // Use API validation for session tokens
-    if(sessionStorage.getItem("currentUserId")) {
-      return sessionStorage.getItem("currentUserId");
-    }
-    else {
-      return false;
-    }
-  }
-
   // Gets a user from the database
   getUser(user: User) {
 
