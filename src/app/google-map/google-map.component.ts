@@ -39,7 +39,7 @@ export class GoogleMapComponent implements OnInit {
   }*/
 
   mapUrl(address: Address) {
-    return `//www.google.com/maps/embed/v1/place?q=`
+    return `https://www.google.com/maps/embed/v1/place?q=`
     + address.street + ` ` + address.city + ` ` + address.state + ` ` + address.zip_code
     +`&zoom=17
     &key=AIzaSyCRxEH46LiEj20I32r-QccBR_X8MHpA0iM`;
