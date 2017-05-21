@@ -1,17 +1,13 @@
-<form (submit)="loginUser()">
-  <fieldset class="form-group">
-    <input type="text" class="form-control" placeholder="First name" name="first_name"
-    [(ngModel)]="userLogin.first_name">
-  </fieldset>
-  <fieldset class="form-group">
-    <input type="text" class="form-control" placeholder="Last name" name="last_name"
-    [(ngModel)]="userLogin.last_name">
-  </fieldset>
-  <fieldset class="form-group">
-    <input type="text" class="form-control" placeholder="Email" name="email"
-    [(ngModel)]="userLogin.email"/>
-  </fieldset>
-  <fieldset>
-    <input class="btn form-control" type="submit" value="Login"/>
-  </fieldset>
-</form>
+<div class="login-clean">
+  <form (submit)="loginUser()">
+    <h2 class="sr-only">Login Form</h2>
+    <div class="illustration"><i class="icon ion-ios-contact-outline" style="color:rgb(67,184,184);"></i></div>
+    <div class="form-group">
+      <input [(ngModel)]="userLogin.email" class="form-control" type="email" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="userLogin.password" class="form-control" type="password" name="password" placeholder="Password">
+    </div>
+    <button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(67,184,184);">Log In</button>
+  </form>
+</div>
