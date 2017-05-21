@@ -1,7 +1,34 @@
-<nav *ngIf="!isUserLoggedIn()">
-  <a routerLink="/login" routerLinkActive="active">login</a>
-  <a routerLink="/signup" routerLinkActive="active">sign up</a>
-</nav>
-<nav *ngIf="isUserLoggedIn()">
-  <a routerLink="/logout" routerLinkActive="active">logout</a>
-</nav>
+<!--Log In and Sign Up-->
+<header>
+  <nav *ngIf="!isUserLoggedIn()" class="navbar navbar-default" style="margin:0px;">
+    <div class="container-fluid">
+      <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Werrow </a>
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><a routerLink="/signup" routerLinkActive="active">sign up</a></li>
+          <li role="presentation"><a routerLink="/login" routerLinkActive="active">login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!--Logout-->
+<header>
+  <nav *ngIf="isUserLoggedIn()" class="navbar navbar-default" style="margin:0px;">
+    <div class="container-fluid">
+      <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Werrow </a>
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <button class="btn btn-default btn-xs navbar-btn" type="button"> <i class="glyphicon glyphicon-plus"></i></button>
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><a routerLink="/logout" routerLinkActive="active">logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
