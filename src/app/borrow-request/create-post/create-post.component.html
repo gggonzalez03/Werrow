@@ -1,16 +1,17 @@
-<button type="button" class="btn" name="post_borrow_request"
-(click)="postBorrowMode = !postBorrowMode">+</button>
+<button name="post_borrow_request" (click)="postBorrowMode = !postBorrowMode" class="btn" type="button">
+  <i class="glyphicon glyphicon-plus"></i>
+</button>
 
-<form *ngIf=postBorrowMode (submit)="createBorrowPost()">
-  <fieldset class="form-group">
-        <input type="text" class="form-control" placeholder="ex. Laptop, Coffee Maker, etc."
-        name="item_name" [(ngModel)]="newUserPost.item_name">
-  </fieldset>
-  <fieldset class="form-group">
-        <input type="text" class="form-control" placeholder="Why?(Optional)"
-        name="reason" [(ngModel)]="newUserPost.reason">
-  </fieldset>
-  <fieldset class="form-group">
-        <input type="submit" class="btn form-control">
-  </fieldset>
-</form>
+<div class="form-group">
+  <form *ngIf=postBorrowMode (submit)="createBorrowPost()">
+    <fieldset class="form-group">
+      <input class="form-control form-control" type="text" placeholder="ex. Laptop, Coffee Maker, etc."
+      name="item_name" [(ngModel)]="newUserPost.item_name">
+    </fieldset>
+    <fieldset class="form-group">
+      <input class="form-control form-control" type="text" placeholder="Why?(Optional)"
+      name="reason" [(ngModel)]="newUserPost.reason">
+    </fieldset>
+    <button class="btn btn-info form-control" type="submit">Submit</button>
+  </form>
+</div>
