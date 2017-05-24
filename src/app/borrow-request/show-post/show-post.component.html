@@ -5,8 +5,10 @@
         <p>needs a</p>
         <h1 class="inline-except" style="display: block"> {{ post.item_name}} </h1>
         <p><i class="glyphicon glyphicon-time"></i> {{ post.time_ago }} </p>
-        <p (mouseenter)=toShowMap(post._id) (click)="idToShowMapOf = null"><i class="glyphicon glyphicon-map-marker"></i> n miles </p>
+        <p (mouseenter)=toShowMap(post._id) (click)="idToShowMapOf = null">
+          <i class="glyphicon glyphicon-map-marker"></i> n miles
+        </p>
     </div>
     <button class="btn btn-default col-xs-12" type="button" style="font-size:20px;"> <i class="icon ion-ios-chatboxes"></i></button>
-    <!--<app-google-map *ngIf="idToShowMapOf == post._id" [address]=getUserByPostId(post.user_id).address></app-google-map>-->
+    <app-google-map *ngIf="idToShowMapOf == post._id" [address]=getUserByPostId(post.user_id).address></app-google-map>
 </div>
