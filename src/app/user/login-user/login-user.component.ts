@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -9,17 +10,25 @@ import { UserService } from '../user.service';
 })
 export class LoginUserComponent implements OnInit {
 
-  userLogin = new User();
+  logInForm: FormGroup;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.logInForm = new FormGroup({
+        email: new FormControl(),
+        password: new FormControl()
+    });
   }
 
   // Logs in the user by asking UserService
   loginUser() {
-    this.userService.loginUser(this.userLogin);
-    this.userLogin = new User();
+    var userLogin = new User();
+
+    userLogin.email = this.logInForm.value.email;
+    userLogin.password = this.logInForm.value.password;
+
+    this.userService.loginUser(userLogin);
   }
 
 }
