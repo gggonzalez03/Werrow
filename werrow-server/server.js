@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-
+const api = require('./routes/api');
+app.use('/api', api);
 app.use('/', express.static(__dirname + '/../werrow-client/dist'));
 
 app.get('/*', function(req, res) {
