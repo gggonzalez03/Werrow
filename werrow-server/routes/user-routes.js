@@ -14,4 +14,16 @@ routes.get('/:id', (req, res) => {
   });
 });
 
+routes.post('/create', (req, res) => {
+  // TODO: Hash the password with salt
+  req.body.password = "abcde";
+
+  // TODO: Delete the _id property and save to the database
+
+  res.status(200).json({
+    status: "200",
+    body: req.body
+  });
+})
+
 module.exports = routes;

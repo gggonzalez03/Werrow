@@ -1,6 +1,12 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+const bodyParser = require('body-parser');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 const api = require('./routes/api');
 app.use('/api', api);
 app.use('/', express.static(__dirname + '/../werrow-client/dist'));
