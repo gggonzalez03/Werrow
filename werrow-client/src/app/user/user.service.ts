@@ -24,9 +24,8 @@ export class UserService {
     // Login the user once created
     this.loginUser(user);
 
-    // TODO: uncomment this when connected to the database
-    //return this.http.post('/signup', user)
-    //.map(data => data.json()).toPromise();
+    return this.http.post('/api/user/create', user)
+    .map(data => data.json()).toPromise();
   }
 
   // Check if a user has an account

@@ -31,13 +31,12 @@ export class CreateUserComponent implements OnInit {
     newUser.email = this.signUpForm.value.email;
     newUser.password = this.signUpForm.value.password;
 
-    this.userService.createUser(newUser);
     // TODO: uncomment this when connected to the database
-    //this.userService.createUser(user);
-    //.then(status => console.log(status))
-    //.catch(err => console.log(err));
+    this.userService.createUser(newUser)
+    .then(status => console.log(status))
+    .catch(err => console.log(err));
 
     // Login the user after account creation
-    //this.loginUser(user);
+    // this.loginUser(user);
   }
 }
