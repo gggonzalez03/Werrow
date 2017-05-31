@@ -41,9 +41,9 @@ export class UserService {
        sessionStorage.setItem("currentUserId", String(user._id));
        this.router.navigate(['/home']);
      }
-    // TODO: uncomment this when connected to the database
-    //return this.http.get('/login', user)
-    //.map(data => data.json()).toPromise();
+    
+    return this.http.post('/api/user/login', user)
+    .map(data => data.json()).toPromise();
   }
 
   // Logs user out

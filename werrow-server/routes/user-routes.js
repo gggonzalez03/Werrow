@@ -40,9 +40,38 @@ routes.post('/create', (req, res) => {
     });
 
   res.status(200).json({
-    status: "200",
-    body: req.body
+    status: "200"
   });
 });
+
+routes.post('/login', (req, res) => {
+  User.findOne({email: req.body.email})
+  .exec((err, user) => {
+    if (!err) {
+      if (user) {
+        bcrypt.compare(req.body.password, user.password)
+        .then(res => {
+          console.log("This is the answer: " + res);
+        });
+
+        res.status(200).json({
+          status: "200"
+        });
+      }
+      else {
+        res.status(400).json({
+          status: "400",
+          error: "Bad Request"
+        });
+      }
+    }
+    else {
+      res.status(500).json({
+        status: "500",
+        error: "Internal Server Error"
+      });
+    }
+  });
+})
 
 module.exports = routes;
