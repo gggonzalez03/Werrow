@@ -2,10 +2,20 @@ var express = require('express');
 var app = express();
 var path = require('path');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Cookie Parser
+//app.use(cookieParser());
+app.use(session({
+  secret: "Your secret key",
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000
+}));
 
 const api = require('./routes/api');
 app.use('/api', api);

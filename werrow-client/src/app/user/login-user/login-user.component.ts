@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router }  from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -12,7 +13,10 @@ export class LoginUserComponent implements OnInit {
 
   logInForm: FormGroup;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.logInForm = new FormGroup({
@@ -29,7 +33,11 @@ export class LoginUserComponent implements OnInit {
     userLogin.password = this.logInForm.value.password;
 
     this.userService.loginUser(userLogin)
-    .then(status => console.log(status))
+    .then(status => {
+      if (status.user) {
+        this.router.navigate(['/home']);
+      }
+    })
     .catch(err => console.log(err));
   }
 

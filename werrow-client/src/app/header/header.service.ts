@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class HeaderService {
 
-  constructor() { }
+  constructor(
+    private http: Http
+  ) { }
 
   // Validate the logged in user
   isUserValidLogin() {
-    // Use API validation for session tokens
-    if(sessionStorage.getItem("currentUserId")) {
-      return sessionStorage.getItem("currentUserId");
-    }
-    else {
-      return false;
-    }
+    return this.http.get('/api/user/active')
+    .map(data => data.json()).toPromise();
   }
-
 }

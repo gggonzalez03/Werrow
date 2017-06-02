@@ -9,21 +9,38 @@ import { HeaderService } from './header.service';
 })
 export class HeaderComponent implements OnInit {
 
+  userActive: boolean = false;
+
   constructor(
-    private headerService: HeaderService,
-    private router:Router
+    private headerService: HeaderService
   ) { }
 
   ngOnInit() {
+    this.isUserLoggedIn();
   }
 
+  // Check if user is active and set userActive true or false
   isUserLoggedIn() {
-    if(this.headerService.isUserValidLogin()) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    this.headerService.isUserValidLogin()
+    .then(() => {
+      this.setActive();
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
+
+  setActive() {
+    this.headerService.isUserValidLogin()
+    .then(result => {
+      this.userActive = result.active;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+
+
 
 }

@@ -30,26 +30,14 @@ export class UserService {
 
   // Check if a user has an account
   loginUser(user: User) {
-    // Check if the user exists
-     var userExists = this.users.filter(function(users) {
-       return users.email == user.email && users.password == user.password;
-     });
-
-     // Set loggedInUser if the user exists
-     // and redirect to the homepage
-     if(userExists[0]) {
-       sessionStorage.setItem("currentUserId", String(user._id));
-       this.router.navigate(['/home']);
-     }
-    
     return this.http.post('/api/user/login', user)
     .map(data => data.json()).toPromise();
   }
 
   // Logs user out
   logoutUser() {
-    sessionStorage.removeItem("currentUserId");
-    this.router.navigate(['/login']);
+    return this.http.get('/api/user/logout')
+    .map(data => data.json()).toPromise();
   }
 
   // Gets a user from the database

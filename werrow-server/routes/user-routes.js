@@ -3,18 +3,23 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const routes = require('express').Router();
 
-routes.get('/:id', (req, res) => {
-  res.status(200).json({
-    _id: req.params.id,
-    name: "Ging Gonzalez",
-    email: "ginggonzalez3@gmail.com",
-    address: {
-        street: "",
-        city: "",
-        state: "",
-        zip_code: ""
-    }
-  });
+routes.get('/:id', (req, res, next) => {
+  if (Number(req.params.id)) {
+    res.status(200).json({
+      _id: req.params.id,
+      name: "Ging Gonzalez",
+      email: "ginggonzalez3@gmail.com",
+      address: {
+          street: "",
+          city: "",
+          state: "",
+          zip_code: ""
+      }
+    });
+  }
+  else {
+    next();
+  }
 });
 
 routes.post('/create', (req, res) => {
@@ -50,18 +55,29 @@ routes.post('/login', (req, res) => {
     if (!err) {
       if (user) {
         bcrypt.compare(req.body.password, user.password)
-        .then(res => {
-          console.log("This is the answer: " + res);
-        });
+        .then(match => {
+          if (match) {
+            user.password = undefined;
+            req.session.user = user;
 
-        res.status(200).json({
-          status: "200"
+            res.status(200)
+            .json({
+              status: "200",
+              user: user
+            });
+          }
+          else {
+            res.status(200).json({
+              status: "200",
+              error: "Invalid credentials."
+            });
+          }
         });
       }
       else {
-        res.status(400).json({
-          status: "400",
-          error: "Bad Request"
+        res.status(200).json({
+          status: "200",
+          error: "Invalid credentials."
         });
       }
     }
@@ -72,6 +88,31 @@ routes.post('/login', (req, res) => {
       });
     }
   });
-})
+});
+
+routes.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.log(err);
+    }
+  });
+
+  res.status(200).json({
+    status: "200",
+    message: "User logged out."
+  })
+});
+
+routes.get('/active', (req, res) => {
+  var active = false;
+  if (req.session.user) {
+    active = true;
+  }
+
+  res.status(200).json({
+    status: "200",
+    active: active
+  });
+});
 
 module.exports = routes;
