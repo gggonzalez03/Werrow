@@ -35,18 +35,23 @@ routes.post('/create', (req, res) => {
       req.body.password = hash;
 
       // Add user to the database
-      User.create(req.body, (err, res) => {
-        if (err) {
-          console.log("Could not insert User");
-        } else {
-          console.log("Successfuly inserted User");
+      User.create(req.body, (err, user) => {
+        if (!err) {
+          user.password = undefined;
+          console.log(user);
+          res.status(201).json({
+            status: "201",
+            message: "Resource Created."
+          });
+        }
+        else {
+          res.status(500).json({
+            status: "500",
+            message: "Internal Server Error."
+          });
         }
       });
     });
-
-  res.status(200).json({
-    status: "200"
-  });
 });
 
 routes.post('/login', (req, res) => {
