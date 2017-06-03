@@ -26,7 +26,9 @@ export class CreatePostComponent implements OnInit {
   // Creates a new post by asking BorrowRequestService to add
   // the post to the database
   createBorrowPost() {
-    this.borrowRequestService.createBorrowPost(this.newUserPost, this.loggedInUserId);
+    this.borrowRequestService.createBorrowPost(this.newUserPost, this.loggedInUserId)
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
     this.postBorrowMode = false;
     this.newUserPost = new BorrowRequest();
   }

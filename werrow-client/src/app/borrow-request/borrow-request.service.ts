@@ -16,8 +16,9 @@ export class BorrowRequestService {
   createBorrowPost(borrowPost: BorrowRequest, userId: number) {
     borrowPost.user_id = userId;
     this.borrowPosts.push(borrowPost);
-    //return this.http.post('/post', user, borrowRequest)
-    //.map(data => data.json()).toPromise();
+
+    return this.http.post('/api/borrow/create', borrowPost)
+    .map(data => data.json()).toPromise();
   }
 
   // Functions below this will be connected to the API
