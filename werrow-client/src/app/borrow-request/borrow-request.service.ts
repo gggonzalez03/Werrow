@@ -26,7 +26,8 @@ export class BorrowRequestService {
 
   // Gets all the posts
   getAllBorrowPosts() {
-    return this.borrowPosts;
+    return this.http.get('/api/borrow/borrows')
+    .map(data => data.json()).toPromise();
   }
 
   // Gets the user who owns a certain post

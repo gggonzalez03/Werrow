@@ -10,6 +10,8 @@ import timeago from 'timeago.js';
 })
 export class ShowPostComponent implements OnInit {
 
+  borrowPosts: Array<BorrowRequest> = [];
+
   constructor(
     private borrowRequestService: BorrowRequestService
   ) { }
@@ -18,19 +20,18 @@ export class ShowPostComponent implements OnInit {
   idToShowMapOf: number;
 
   ngOnInit() {
+    this.getAllBorrowPosts();
   }
 
   // Gets all posts by asking BorrowRequestService to look up
   // the database
-  showAllBorrowPosts() {
-    var borrowPosts = this.borrowRequestService.getAllBorrowPosts();
-    borrowPosts.forEach(post => {
+  getAllBorrowPosts() {
+    this.borrowRequestService.getAllBorrowPosts()
+    .then(result => this.borrowPosts = result.data)
+    .catch(err => console.log(err))
+    /*borrowPosts.forEach(post => {
         post.time_ago = this.timeInstance.format(post.time_stamp);
-    });
-
-    return borrowPosts.sort((a, b) => {
-      return b.time_stamp-a.time_stamp;
-    });
+    });*/
   }
 
   toShowMap(postId: number) {
