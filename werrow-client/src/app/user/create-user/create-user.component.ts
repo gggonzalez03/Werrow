@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { User } from '../user';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service'
 
 @Component({
@@ -12,7 +13,10 @@ export class CreateUserComponent implements OnInit {
 
   signUpForm: FormGroup;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -33,7 +37,10 @@ export class CreateUserComponent implements OnInit {
 
     // TODO: uncomment this when connected to the database
     this.userService.createUser(newUser)
-    .then(status => console.log(status))
+    .then(status => {
+      console.log(status);
+      this.router.navigate(['/home']);
+    })
     .catch(err => console.log(err));
 
     // Login the user after account creation
