@@ -44,4 +44,23 @@ routes.get('/borrows', (req, res) => {
   })
 })
 
+routes.get('/:id', (req, res) => {
+  BorrowPost.find({_id: req.params.id})
+  .exec((err, borrow) => {
+    if (!err) {
+      res.status(200).json({
+        status: "200",
+        message: "OK",
+        data: borrow
+      })
+    }
+    else {
+      res.status(500).json({
+        status: "500",
+        message: "Internal Server Error." 
+     })
+    }
+  })
+})
+
 module.exports = routes;
