@@ -3,8 +3,6 @@ const routes = require('express').Router();
 
 routes.post('/create', (req, res) => {
   req.body._id = undefined;
-  //delete req.body.time_ago;
-  //delete req.body.map_hidden;
   req.body.user_id = req.session.user._id;
   console.log(req.session.user._id);
 

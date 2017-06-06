@@ -3,14 +3,12 @@
 </button>
 
 <div class="form-group">
-  <form *ngIf=postBorrowMode (submit)="createBorrowPost()">
+  <form *ngIf=postBorrowMode [formGroup]="createPostForm" (ngSubmit)="createBorrowPost()">
     <fieldset class="form-group">
-      <input class="form-control form-control" type="text" placeholder="ex. Laptop, Coffee Maker, etc."
-      name="item_name" [(ngModel)]="newUserPost.item_name">
+      <input formControlName="item_name" name="item_name" class="form-control" type="text" placeholder="ex. Laptop, Coffee Maker, etc.">
     </fieldset>
     <fieldset class="form-group">
-      <input class="form-control form-control" type="text" placeholder="Why?(Optional)"
-      name="reason" [(ngModel)]="newUserPost.reason">
+      <input formControlName="reason" class="form-control" type="text" name="reason" placeholder="Why?(Optional)">
     </fieldset>
     <button class="btn btn-info form-control" type="submit">Submit</button>
   </form>

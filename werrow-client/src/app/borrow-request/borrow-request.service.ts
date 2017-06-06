@@ -13,10 +13,7 @@ export class BorrowRequestService {
   borrowPosts: Array<BorrowRequest> = [];
 
   // Creates a new user to the database
-  createBorrowPost(borrowPost: BorrowRequest, userId: number) {
-    borrowPost.user_id = userId;
-    this.borrowPosts.push(borrowPost);
-
+  createBorrowPost(borrowPost: BorrowRequest) {
     return this.http.post('/api/borrow/create', borrowPost)
     .map(data => data.json()).toPromise();
   }

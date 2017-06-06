@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import 'rxjs/add/operator/switchMap';
 import { BorrowRequest } from '../borrow-request';
 import { BorrowRequestService } from '../borrow-request.service'
@@ -10,31 +11,37 @@ import { BorrowRequestService } from '../borrow-request.service'
 })
 export class CreatePostComponent implements OnInit {
 
+  createPostForm: FormGroup;
+
   @Output() createPostEvent = new EventEmitter;
   postBorrowMode = false;
-  newUserPost = new BorrowRequest();
-  loggedInUserId: number;
 
   constructor(
     private borrowRequestService: BorrowRequestService
   ) { }
 
   ngOnInit() {
-    // TODO: Validate user with tokens
-    this.loggedInUserId = Number(this.borrowRequestService.isUserValidLogin());
+    this.createPostForm = new FormGroup({
+      item_name: new FormControl(),
+      reason: new FormControl()
+    })
   }
 
   // Creates a new post by asking BorrowRequestService to add
   // the post to the database
   createBorrowPost() {
-    this.borrowRequestService.createBorrowPost(this.newUserPost, this.loggedInUserId)
+    let newUserPost = new BorrowRequest();
+
+    newUserPost.item_name = this.createPostForm.value.item_name;
+    newUserPost.reason = this.createPostForm.value.reason;
+
+    this.borrowRequestService.createBorrowPost(newUserPost)
     .then(result => {
       console.log(result);
       this.createPostEvent.emit()
     })
     .catch(err => console.log(err));
     this.postBorrowMode = false;
-    this.newUserPost = new BorrowRequest();
   }
 
 }
