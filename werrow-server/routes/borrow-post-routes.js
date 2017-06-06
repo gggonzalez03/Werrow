@@ -23,10 +23,11 @@ routes.post('/create', (req, res) => {
 });
 
 routes.get('/borrows', (req, res) => {
-  BorrowPost.find({}).sort('-time_stamp')
+  BorrowPost.find({})
+  .populate('user_id', ['name', 'email', 'photo', 'address'])
+  .sort('-time_stamp')
   .exec((err, borrow) => {
     if (!err) {
-      console.log("borrow");
       res.status(200).json({
         status: "201",
         message: "OK",
@@ -58,6 +59,13 @@ routes.get('/:id', (req, res) => {
         message: "Internal Server Error." 
      })
     }
+  })
+})
+
+routes.get('/owner/:id', (req, res) => {
+  BorrowPost.find({id: req.params.id}, 'user_id')
+  .exec((err, user_id) => {
+    console.log(user_id);
   })
 })
 

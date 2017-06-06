@@ -13,7 +13,7 @@ var borrowPostSchema = new mongoose.Schema({
   reason: {type: String, require: true},
   time_stamp: {type: String, require: true},
   satisfied: {type: Boolean, require: true},
-  user_id: {type: mongoose.Schema.Types.ObjectId, require: true}
+  user_id: {type: mongoose.Schema.Types.ObjectId, require: true, ref: 'User'}
 });
 
 
