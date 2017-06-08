@@ -9,6 +9,9 @@
                 <span *ngIf="signUpForm.get('name').errors?.required">
                     Name is required.
                 </span>
+                <span *ngIf="signUpForm.get('name').invalid">
+                    Name should be at least 6 characters.
+                </span>
             </span>
 
         </div>
@@ -31,6 +34,9 @@
             <span *ngIf="(signUpForm.get('password').touched || signUpForm.get('password').dirty) && signUpForm.get('password').errors">
                 <span *ngIf="signUpForm.get('password').errors?.required">
                     Password is required.
+                </span>
+                <span *ngIf="signUpForm.get('password').invalid">
+                    Password should be at least 6 characters.
                 </span>
             </span>
 
