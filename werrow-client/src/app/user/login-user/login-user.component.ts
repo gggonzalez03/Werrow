@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router }  from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -12,6 +12,7 @@ import { UserService } from '../user.service';
 export class LoginUserComponent implements OnInit {
 
   logInForm: FormGroup;
+  invalidCreds: Boolean = false;
 
   constructor(
     private userService: UserService,
@@ -20,8 +21,8 @@ export class LoginUserComponent implements OnInit {
 
   ngOnInit() {
     this.logInForm = new FormGroup({
-        email: new FormControl(),
-        password: new FormControl()
+        email: new FormControl('', [Validators.required]),
+        password: new FormControl('', [Validators.required])
     });
   }
 
@@ -36,6 +37,9 @@ export class LoginUserComponent implements OnInit {
     .then(status => {
       if (status.user) {
         this.router.navigate(['/home']);
+      }
+      else {
+        this.invalidCreds = true;
       }
     })
     .catch(err => console.log(err));
