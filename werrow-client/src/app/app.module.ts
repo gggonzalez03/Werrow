@@ -59,6 +59,10 @@ import { FeedCardComponent } from './feed-card/feed-card.component';
       {
         path: 'home',
         component: BorrowRequestComponent
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent
       }
     ])
   ],
