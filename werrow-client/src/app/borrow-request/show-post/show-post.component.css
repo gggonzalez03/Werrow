@@ -1,14 +1,3 @@
-.wrw-float-block {
-  vertical-align:text-top;
-  fload:left;
-}
-
-.wrw-feed-profile-photo {
-  height:100px;
-  width:100px;
-  margin:10px;
-}
-
 .wrw-post-cards {
   width:570px;
   margin:auto;
@@ -19,23 +8,4 @@
     width:100%;
     margin:auto;
   }
-}
-
-.wrw-feed-profile-photo {
-}
-
-.inline-items > * {
-  display:inline;
-}
-
-.inline-except {
-  display:block;
-}
-
-.zero-margin-items > * {
-  margin:0px;
-}
-
-.spread-div-marginless-contents > * {
-  margin:2px;
 }

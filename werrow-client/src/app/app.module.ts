@@ -20,6 +20,7 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { FeedCardComponent } from './feed-card/feed-card.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     GoogleMapComponent,
     HeaderComponent,
     FooterComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    FeedCardComponent
   ],
   imports: [
     BrowserModule,

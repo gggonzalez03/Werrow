@@ -17,7 +17,6 @@ export class ShowPostComponent implements OnInit {
   ) { }
 
   timeInstance = timeago();
-  idToShowMapOf: number;
 
   ngOnInit() {
     this.getAllBorrowPosts();
@@ -32,10 +31,6 @@ export class ShowPostComponent implements OnInit {
     /*borrowPosts.forEach(post => {
         post.time_ago = this.timeInstance.format(post.time_stamp);
     });*/
-  }
-
-  toShowMap(postId: number) {
-    this.idToShowMapOf = postId;
   }
 
   // Gets the user who owns the post by post id
