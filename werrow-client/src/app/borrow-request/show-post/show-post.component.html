@@ -1,3 +1,4 @@
+<app-header></app-header>
 <app-create-post (createPostEvent)="getAllBorrowPosts()"></app-create-post>
 <div *ngFor="let post of borrowPosts" name="borrowPosts" class="wrw-post-cards" style="margin-top:10px;background-color:#f5f5f5;height:165px;">
     <app-feed-card [feedCard]="post"></app-feed-card>

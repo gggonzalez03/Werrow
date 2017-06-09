@@ -22,25 +22,11 @@ export class HeaderComponent implements OnInit {
   // Check if user is active and set userActive true or false
   isUserLoggedIn() {
     this.headerService.isUserValidLogin()
-    .then(() => {
-      this.setActive();
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }
-
-  setActive() {
-    this.headerService.isUserValidLogin()
-    .then(result => {
+    .then((result) => {
       this.userActive = result.active;
     })
     .catch(err => {
       console.log(err);
     });
   }
-
-
-
-
 }
