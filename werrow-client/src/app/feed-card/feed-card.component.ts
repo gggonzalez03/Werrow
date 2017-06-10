@@ -12,15 +12,20 @@ export class FeedCardComponent implements OnInit {
   @Input() feedCard: BorrowRequest;
 
   timeInstance = timeago();
-  idToShowMapOf: number;
+  private static idToShowMapOf: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  toShowMap(postId: number) {
-    this.idToShowMapOf = postId;
+  setIdToShowMapOf(postId: string) {
+    FeedCardComponent.idToShowMapOf = postId;
   }
+
+  getIdToShowMapOf() {
+    return FeedCardComponent.idToShowMapOf;
+  }
+
 
 }

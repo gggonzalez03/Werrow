@@ -4,9 +4,9 @@
   <p>needs a</p>
   <h1 class="inline-except" style="display: block"> {{ feedCard.item_name}} </h1>
   <p><i class="glyphicon glyphicon-time"></i> {{ feedCard.time_ago }} </p>
-  <p (mouseenter)=toShowMap(feedCard._id) (click)="idToShowMapOf = null">
+  <p (mouseenter)=setIdToShowMapOf(feedCard._id) (click)="setIdToShowMapOf(null)">
     <i class="glyphicon glyphicon-map-marker"></i> n miles
   </p>
 </div>
 <button class="btn btn-default col-xs-12" type="button" style="font-size:20px;"> <i class="icon ion-ios-chatboxes"></i></button>
-<app-google-map *ngIf="idToShowMapOf == feedCard._id" [address]=feedCard.user_id.address></app-google-map>
+<app-google-map *ngIf="getIdToShowMapOf() == feedCard._id" [address]=feedCard.user_id.address></app-google-map>
