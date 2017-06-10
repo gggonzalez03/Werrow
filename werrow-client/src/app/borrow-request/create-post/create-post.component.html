@@ -1,8 +1,10 @@
-<button name="post_borrow_request" (click)="postBorrowMode = !postBorrowMode" class="btn" type="button">
-  <i class="glyphicon glyphicon-plus"></i>
-</button>
+<div style="text-align: center; margin:5px">
+  <button name="post_borrow_request" (click)="postBorrowMode = !postBorrowMode" class="btn" type="button">
+    <i class="glyphicon glyphicon-plus"></i>
+  </button>
+</div>
 
-<div class="form-group">
+<div id="wrw-create-post" class="form-group">
   <form *ngIf=postBorrowMode [formGroup]="createPostForm" (ngSubmit)="createBorrowPost()">
     <fieldset class="form-group">
       <input formControlName="item_name" name="item_name" class="form-control" type="text" placeholder="ex. Laptop, Coffee Maker, etc.">

@@ -1,0 +1,11 @@
+#wrw-create-post {
+  width:570px;
+  margin:auto;
+}
+
+@media (max-width:767px) {
+  #wrw-create-post {
+    width:100%;
+    margin:auto;
+  }
+}
