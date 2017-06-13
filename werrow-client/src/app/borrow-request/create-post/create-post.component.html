@@ -1,17 +1,30 @@
-<div style="text-align: center; margin:5px">
-  <button name="post_borrow_request" (click)="postBorrowMode = !postBorrowMode" class="btn" type="button">
+<div id="wrw-create-post-add-btn">
+  <button class="btn btn-default btn-xs" name="post_borrow_request" (click)="postBorrowMode = !postBorrowMode" type="button">
     <i class="glyphicon glyphicon-plus"></i>
   </button>
 </div>
 
-<div id="wrw-create-post" class="form-group">
-  <form *ngIf=postBorrowMode [formGroup]="createPostForm" (ngSubmit)="createBorrowPost()">
-    <fieldset class="form-group">
-      <input formControlName="item_name" name="item_name" class="form-control" type="text" placeholder="ex. Laptop, Coffee Maker, etc.">
-    </fieldset>
-    <fieldset class="form-group">
-      <input formControlName="reason" class="form-control" type="text" name="reason" placeholder="Why?(Optional)">
-    </fieldset>
-    <button class="btn btn-info form-control" type="submit">Submit</button>
-  </form>
+<div id="wrw-create-post" *ngIf=postBorrowMode>
+  <div class="form-group">
+    <h3 id="wrw-form-title">Create Post</h3>
+    <form id="wrw-create-post-form" (ngSubmit)="createBorrowPost()" [formGroup]="createPostForm">
+      <fieldset id="wrw-input-item-name" class="form-group">
+        <input formControlName="item_name" name="item_name" class="form-control" type="text" placeholder="ex. Laptop, Coffee Maker, etc.">
+      </fieldset>
+      <fieldset id="wrw-input-meetup-address" class="form-group">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100%;">Meetup Address<span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" style="width:100%;">
+            <li role="presentation"><a href="#">First Item</a></li>
+            <li role="presentation"><a href="#">Second Item</a></li>
+            <li role="presentation"><a href="#">Third Item</a></li>
+          </ul>
+        </div>
+      </fieldset>
+      <fieldset id="wrw-input-borrow-reason" class="form-group">
+        <textarea formControlName="reason" class="form-control" class="form-control" placeholder="Why?(Optional)"></textarea>
+      </fieldset>
+      <button class="btn btn-default form-control" type="submit" style="width:50%;">Submit</button>
+    </form>
+  </div>
 </div>

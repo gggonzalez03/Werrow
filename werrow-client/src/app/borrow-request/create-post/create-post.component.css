@@ -1,11 +1,56 @@
-#wrw-create-post {
-  width:570px;
-  margin:auto;
-}
+/*==========  Mobile First Method  ==========*/
 
-@media (max-width:767px) {
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 0px) {
+  /* create-post-form-component made in boostrap studio*/
+  #wrw-create-post-add-btn {
+    text-align:center;
+  }
+
   #wrw-create-post {
-    width:100%;
-    margin:auto;
+    margin:10px;
+    padding:20px;
+    background-color:#5BBEFF;
+    text-align:center;
+  }
+
+  #wrw-form-title {
+    text-align:center;
+    color:white;
+  }
+
+  #wrw-input-borrow-reason > textarea {
+    min-width:100%;
+    min-height:100px;
+    max-width:100%;
+    max-height:250px;
   }
 }
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  #wrw-create-post {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	#wrw-create-post {
+    width: 60%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  #wrw-create-post {
+    width: 40%;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
