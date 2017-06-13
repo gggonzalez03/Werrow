@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FeedCardComponent } from './feed-card/feed-card.component';
+import { UserProfileHeaderComponent } from './user-profile/user-profile-header/user-profile-header.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FeedCardComponent } from './feed-card/feed-card.component';
     HeaderComponent,
     FooterComponent,
     UserProfileComponent,
-    FeedCardComponent
+    FeedCardComponent,
+    UserProfileHeaderComponent
   ],
   imports: [
     BrowserModule,
