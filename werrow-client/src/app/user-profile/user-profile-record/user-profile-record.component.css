@@ -1,0 +1,29 @@
+.wrw-records {
+  text-align:center;
+  padding:20px;
+  vertical-align:middle;
+  color:white;
+}
+
+.wrw-count {
+  font-size:72px;
+}
+
+#wrw-borrow-count {
+  background-color:#3d552d;
+}
+
+#wrw-point-count {
+  background-color:#28336d;
+}
+
+#wrw-lend-count {
+  background-color:#766929;
+}
+
+#wrw-user-profile-record {
+  margin:0;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
