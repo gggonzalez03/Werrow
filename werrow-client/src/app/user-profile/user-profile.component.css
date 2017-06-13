@@ -39,20 +39,3 @@
   font-size:20px;
   padding:10px;
 }
-
-.wrw-profile-tab-links:hover {
-}
-
-
-
-.wrw-post-cards {
-  width:570px;
-  margin:auto;
-}
-
-@media (max-width:767px) {
-  .wrw-post-cards {
-    width:100%;
-    margin:auto;
-  }
-}
