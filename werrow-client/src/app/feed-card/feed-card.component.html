@@ -1,12 +1,16 @@
-<img src="./assets/img/user.png" data-aos="slide-right" class="wrw-float-block wrw-feed-profile-photo">
-<div data-aos="slide-left" class="wrw-float-block inline-items zero-margin-items spread-div-marginless-contents" style="display:inline-block;padding:10px;">
-  <h4> {{ feedCard.user_id.name }} </h4>
-  <p>needs a</p>
-  <h1 class="inline-except" style="display: block"> {{ feedCard.item_name}} </h1>
-  <p><i class="glyphicon glyphicon-time"></i> {{ feedCard.time_ago }} </p>
-  <p (mouseenter)=setIdToShowMapOf(feedCard._id) (click)="setIdToShowMapOf(null)">
-    <i class="glyphicon glyphicon-map-marker"></i> n miles
-  </p>
+<div class="wrw-feed-card"><img src="assets/img/user.png" data-aos="slide-right" class="wrw-profile-photo">
+  <div class="wrw-info" data-aos="slide-left">
+    <h4 class="wrw-inline"> {{ feedCard.user_id.name }} </h4>
+    <p class="wrw-inline">needs a</p>
+    <h1> {{ feedCard.item_name}} </h1>
+    <p class="wrw-inline"><i class="glyphicon glyphicon-time"></i> {{ feedCard.time_ago }} </p>
+    <p class="wrw-inline" (mouseenter)=setIdToShowMapOf(feedCard._id) (click)="setIdToShowMapOf(null)"><i class="glyphicon glyphicon-map-marker"></i>
+      0 miles
+      <app-google-map style="position: absolute;" *ngIf="getIdToShowMapOf() == feedCard._id" [address]=feedCard.user_id.address></app-google-map>
+    </p>
+  </div><a href="#" class="wrw-close-btn"><i class="fa fa-close wrw-close-icon"></i></a>
+  <div class="btn-group wrw-feed-button-grp row" role="group">
+    <button class="btn btn-default wrw-comment-btn col-xs-6" type="button"> <i class="glyphicon glyphicon-comment"></i> Comment</button>
+    <button class="btn btn-default wrw-message-btn col-xs-6" type="button"> <i class="icon ion-ios-chatboxes"></i> Message</button>
+  </div>
 </div>
-<button class="btn btn-default col-xs-12" type="button" style="font-size:20px;"> <i class="icon ion-ios-chatboxes"></i></button>
-<app-google-map *ngIf="getIdToShowMapOf() == feedCard._id" [address]=feedCard.user_id.address></app-google-map>
