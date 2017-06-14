@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { GoogleMapService } from './google-map.service';
-import { Address } from '../user/address'
+import { Address } from '../pages/user/address'
 
 @Component({
   selector: 'app-google-map',

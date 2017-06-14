@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BorrowRequest } from '../borrow-request/borrow-request';
+import { BorrowRequest } from '../pages/borrow-request/borrow-request';
 import timeago from 'timeago.js';
 
 @Component({

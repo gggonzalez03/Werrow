@@ -32,10 +32,4 @@ export class ShowPostComponent implements OnInit {
         post.time_ago = this.timeInstance.format(post.time_stamp);
     });*/
   }
-
-  // Gets the user who owns the post by post id
-  getUserByPostId(postId: number) {
-    return this.borrowRequestService.getUserByPostId(postId);
-  }
-
 }
