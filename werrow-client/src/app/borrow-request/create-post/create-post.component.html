@@ -12,14 +12,13 @@
         <input formControlName="item_name" name="item_name" class="form-control" type="text" placeholder="ex. Laptop, Coffee Maker, etc.">
       </fieldset>
       <fieldset id="wrw-input-meetup-address" class="form-group">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100%;">Meetup Address<span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu" style="width:100%;">
-            <li role="presentation"><a href="#">First Item</a></li>
-            <li role="presentation"><a href="#">Second Item</a></li>
-            <li role="presentation"><a href="#">Third Item</a></li>
-          </ul>
-        </div>
+        <select class="form-control">
+          <optgroup label="This is a group">
+            <option value="12" selected="">This is item 1</option>
+            <option value="13">This is item 2</option>
+            <option value="14">This is item 3</option>
+          </optgroup>
+        </select>
       </fieldset>
       <fieldset id="wrw-input-borrow-reason" class="form-group">
         <textarea formControlName="reason" class="form-control" class="form-control" placeholder="Why?(Optional)"></textarea>
