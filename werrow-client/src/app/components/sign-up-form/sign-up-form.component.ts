@@ -1,0 +1,35 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { User } from '../../models/user';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-sign-up-form',
+  templateUrl: './sign-up-form.component.html',
+  styleUrls: ['./sign-up-form.component.css']
+})
+export class SignUpFormComponent implements OnInit {
+
+  @Output() createUserEvent = new EventEmitter();
+
+  signUpForm: FormGroup;
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.signUpForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      email: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
+  }
+
+  // Creates user by asking UserService to add
+  // user to the database
+  createUser() {
+    this.createUserEvent.emit(this.signUpForm);
+  }
+}

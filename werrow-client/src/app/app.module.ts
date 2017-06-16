@@ -6,6 +6,7 @@ import { RouterModule, Routes }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UserService } from './pages/user/user.service';
+import { SignUpService } from './pages/sign-up/sign-up.service';
 import { BorrowRequestService } from './pages/borrow-request/borrow-request.service';
 import { GoogleMapService } from './google-map/google-map.service';
 import { HeaderService } from './header/header.service';
@@ -13,7 +14,7 @@ import { UserProfileService } from './pages/user-profile/user-profile.service'
 import { CreatePostService } from './pages/borrow-request/create-post/create-post.service';
 import { ShowPostService } from './pages/borrow-request/show-post/show-post.service';
 import { BorrowRequestComponent } from './pages/borrow-request/borrow-request.component';
-import { CreateUserComponent } from './pages/user/create-user/create-user.component';
+import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { CreatePostComponent } from './pages/borrow-request/create-post/create-post.component';
 import { LoginUserComponent } from './pages/user/login-user/login-user.component';
 import { ShowPostComponent } from './pages/borrow-request/show-post/show-post.component';
@@ -25,13 +26,14 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { FeedCardComponent } from './feed-card/feed-card.component';
 import { UserProfileHeaderComponent } from './pages/user-profile/user-profile-header/user-profile-header.component';
 import { UserProfileRecordComponent } from './pages/user-profile/user-profile-record/user-profile-record.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BorrowRequestComponent,
-    CreateUserComponent,
+    SignUpFormComponent,
     CreatePostComponent,
     LoginUserComponent,
     ShowPostComponent,
@@ -42,7 +44,8 @@ import { UserProfileRecordComponent } from './pages/user-profile/user-profile-re
     UserProfileComponent,
     FeedCardComponent,
     UserProfileHeaderComponent,
-    UserProfileRecordComponent
+    UserProfileRecordComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ import { UserProfileRecordComponent } from './pages/user-profile/user-profile-re
     RouterModule.forRoot([
       {
         path: 'signup',
-        component: CreateUserComponent
+        component: SignUpComponent
       },
       {
         path: 'login',
@@ -74,6 +77,7 @@ import { UserProfileRecordComponent } from './pages/user-profile/user-profile-re
   ],
   providers: [
     UserService,
+    SignUpService,
     BorrowRequestService,
     GoogleMapService,
     HeaderService,
