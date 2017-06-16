@@ -7,6 +7,7 @@ import { RouterModule, Routes }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserService } from './pages/user/user.service';
 import { SignUpService } from './pages/sign-up/sign-up.service';
+import { LoginPageService } from './pages/login-page/login-page.service';
 import { BorrowRequestService } from './pages/borrow-request/borrow-request.service';
 import { GoogleMapService } from './google-map/google-map.service';
 import { HeaderService } from './header/header.service';
@@ -15,8 +16,8 @@ import { CreatePostService } from './pages/borrow-request/create-post/create-pos
 import { ShowPostService } from './pages/borrow-request/show-post/show-post.service';
 import { BorrowRequestComponent } from './pages/borrow-request/borrow-request.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CreatePostComponent } from './pages/borrow-request/create-post/create-post.component';
-import { LoginUserComponent } from './pages/user/login-user/login-user.component';
 import { ShowPostComponent } from './pages/borrow-request/show-post/show-post.component';
 import { LogoutUserComponent } from './pages/user/logout-user/logout-user.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -27,6 +28,7 @@ import { FeedCardComponent } from './feed-card/feed-card.component';
 import { UserProfileHeaderComponent } from './pages/user-profile/user-profile-header/user-profile-header.component';
 import { UserProfileRecordComponent } from './pages/user-profile/user-profile-record/user-profile-record.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
 @NgModule({
@@ -35,7 +37,6 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
     BorrowRequestComponent,
     SignUpFormComponent,
     CreatePostComponent,
-    LoginUserComponent,
     ShowPostComponent,
     LogoutUserComponent,
     GoogleMapComponent,
@@ -45,7 +46,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
     FeedCardComponent,
     UserProfileHeaderComponent,
     UserProfileRecordComponent,
-    SignUpComponent
+    SignUpComponent,
+    LoginPageComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
       },
       {
         path: 'login',
-        component: LoginUserComponent
+        component: LoginPageComponent
       },
       {
         path: 'logout',
@@ -78,6 +81,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
   providers: [
     UserService,
     SignUpService,
+    LoginPageService,
     BorrowRequestService,
     GoogleMapService,
     HeaderService,
