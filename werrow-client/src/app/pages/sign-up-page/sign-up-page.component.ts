@@ -21,22 +21,4 @@ export class SignUpComponent implements OnInit {
     
   }
 
-  createUser(signUpForm: FormGroup) {
-    if (!signUpForm.invalid) {
-      var newUser = new User();
-
-      newUser.name = signUpForm.value.name;
-      newUser.email = signUpForm.value.email;
-      newUser.password = signUpForm.value.password;
-
-
-      this.signUpService.createUser(newUser)
-        .then(status => {
-          console.log(status);
-          this.router.navigate(['/home']);
-        })
-        .catch(err => console.log(err));
-    }
-  }
-
 }

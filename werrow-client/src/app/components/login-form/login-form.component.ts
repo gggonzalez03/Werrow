@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginFormService } from './login-form.service';
 import { Router }  from '@angular/router';
 import { User } from '../../models/user';
 
@@ -10,12 +11,11 @@ import { User } from '../../models/user';
 })
 export class LoginFormComponent implements OnInit {
 
-  @Output() loginUserEvent = new EventEmitter();
-  @Input() invalidCreds: Boolean = false;
-
   logInForm: FormGroup;
+  invalidCreds: Boolean = false;
 
   constructor(
+    private loginFormService: LoginFormService,
     private router: Router
   ) { }
 
@@ -26,8 +26,22 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-    // Logs in the user by asking UserService
+  // Logs in the user by asking UserService
   loginUser() {
-    this.loginUserEvent.emit(this.logInForm);
+    var userLogin = new User();
+
+    userLogin.email = this.logInForm.value.email;
+    userLogin.password = this.logInForm.value.password;
+
+    this.loginFormService.loginUser(userLogin)
+    .then(status => {
+      if (status.user) {
+        this.router.navigate(['/home']);
+      }
+      else {
+        this.invalidCreds = true;
+      }
+    })
+    .catch(err => console.log(err));
   }
 }

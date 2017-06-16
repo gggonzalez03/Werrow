@@ -11,32 +11,11 @@ import { User } from '../../models/user';
 })
 export class LoginPageComponent implements OnInit {
 
-  invalidCreds: Boolean = false;
-
   constructor(
     private loginPageService: LoginPageService,
     private router: Router
   ) { }
 
   ngOnInit() {
-  }
-
-  // Logs in the user by asking UserService
-  loginUser(logInForm: FormGroup) {
-    var userLogin = new User();
-
-    userLogin.email = logInForm.value.email;
-    userLogin.password = logInForm.value.password;
-
-    this.loginPageService.loginUser(userLogin)
-    .then(status => {
-      if (status.user) {
-        this.router.navigate(['/home']);
-      }
-      else {
-        this.invalidCreds = true;
-      }
-    })
-    .catch(err => console.log(err));
   }
 }

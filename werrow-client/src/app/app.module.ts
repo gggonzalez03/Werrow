@@ -14,6 +14,8 @@ import { HeaderService } from './header/header.service';
 import { UserProfileService } from './pages/user-profile/user-profile.service'
 import { CreatePostService } from './pages/borrow-request/create-post/create-post.service';
 import { ShowPostService } from './pages/borrow-request/show-post/show-post.service';
+import { SignUpFormService } from './components/sign-up-form/sign-up-form.service';
+import { LoginFormService } from './components/login-form/login-form.service';
 import { BorrowRequestComponent } from './pages/borrow-request/borrow-request.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -87,7 +89,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     HeaderService,
     UserProfileService,
     CreatePostService,
-    ShowPostService
+    ShowPostService,
+    SignUpFormService,
+    LoginFormService
   ],
   bootstrap: [AppComponent]
 })
