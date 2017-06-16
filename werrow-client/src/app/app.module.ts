@@ -6,7 +6,7 @@ import { RouterModule, Routes }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UserService } from './pages/user/user.service';
-import { SignUpService } from './pages/sign-up/sign-up.service';
+import { SignUpService } from './pages/sign-up-page/sign-up-page.service';
 import { LoginPageService } from './pages/login-page/login-page.service';
 import { BorrowRequestService } from './pages/borrow-request/borrow-request.service';
 import { GoogleMapService } from './google-map/google-map.service';
@@ -27,7 +27,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { FeedCardComponent } from './feed-card/feed-card.component';
 import { UserProfileHeaderComponent } from './pages/user-profile/user-profile-header/user-profile-header.component';
 import { UserProfileRecordComponent } from './pages/user-profile/user-profile-record/user-profile-record.component';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignUpComponent } from './pages/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
