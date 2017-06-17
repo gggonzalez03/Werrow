@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UserService } from './pages/user/user.service';
 import { SignUpService } from './pages/sign-up-page/sign-up-page.service';
 import { LoginPageService } from './pages/login-page/login-page.service';
 import { BorrowRequestService } from './pages/borrow-request/borrow-request.service';
@@ -16,12 +15,12 @@ import { CreatePostService } from './pages/borrow-request/create-post/create-pos
 import { ShowPostService } from './pages/borrow-request/show-post/show-post.service';
 import { SignUpFormService } from './components/sign-up-form/sign-up-form.service';
 import { LoginFormService } from './components/login-form/login-form.service';
+import { LogoutButtonService } from './components/logout-button/logout-button.service';
 import { BorrowRequestComponent } from './pages/borrow-request/borrow-request.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CreatePostComponent } from './pages/borrow-request/create-post/create-post.component';
 import { ShowPostComponent } from './pages/borrow-request/show-post/show-post.component';
-import { LogoutUserComponent } from './pages/user/logout-user/logout-user.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -31,6 +30,7 @@ import { UserProfileHeaderComponent } from './pages/user-profile/user-profile-he
 import { UserProfileRecordComponent } from './pages/user-profile/user-profile-record/user-profile-record.component';
 import { SignUpComponent } from './pages/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 
 
 @NgModule({
@@ -40,7 +40,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     SignUpFormComponent,
     CreatePostComponent,
     ShowPostComponent,
-    LogoutUserComponent,
     GoogleMapComponent,
     HeaderComponent,
     FooterComponent,
@@ -50,7 +49,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     UserProfileRecordComponent,
     SignUpComponent,
     LoginPageComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LogoutButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -67,10 +67,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
         component: LoginPageComponent
       },
       {
-        path: 'logout',
-        component: LogoutUserComponent
-      },
-      {
         path: 'home',
         component: BorrowRequestComponent
       },
@@ -81,7 +77,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     ])
   ],
   providers: [
-    UserService,
     SignUpService,
     LoginPageService,
     BorrowRequestService,
@@ -91,7 +86,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     CreatePostService,
     ShowPostService,
     SignUpFormService,
-    LoginFormService
+    LoginFormService,
+    LogoutButtonService
   ],
   bootstrap: [AppComponent]
 })

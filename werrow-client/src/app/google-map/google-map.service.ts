@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from '../pages/user/user';
-import { Address } from '../pages/user/address'
+import { User } from '../models/user';
+import { Address } from '../models/address'
 
 @Injectable()
 export class GoogleMapService {
