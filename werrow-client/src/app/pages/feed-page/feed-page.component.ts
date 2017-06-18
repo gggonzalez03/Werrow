@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { BorrowRequestService } from '../borrow-request.service'
-import { BorrowRequest } from '../borrow-request';
+import { FeedPageService } from './feed-page.service'
+import { BorrowRequest } from '../../models/borrow-request';
 import timeago from 'timeago.js';
 
 @Component({
-  selector: 'app-show-post',
-  templateUrl: './show-post.component.html',
-  styleUrls: ['./show-post.component.css']
+  selector: 'app-feed-page',
+  templateUrl: './feed-page.component.html',
+  styleUrls: ['./feed-page.component.css']
 })
-export class ShowPostComponent implements OnInit {
+export class FeedPageComponent implements OnInit {
 
   borrowPosts: Array<BorrowRequest> = [];
 
   constructor(
-    private borrowRequestService: BorrowRequestService
+    private feedPageService: FeedPageService
   ) { }
 
   timeInstance = timeago();
@@ -25,11 +25,12 @@ export class ShowPostComponent implements OnInit {
   // Gets all posts by asking BorrowRequestService to look up
   // the database
   getAllBorrowPosts() {
-    this.borrowRequestService.getAllBorrowPosts()
+    this.feedPageService.getAllBorrowPosts()
     .then(result => this.borrowPosts = result.data)
     .catch(err => console.log(err))
     /*borrowPosts.forEach(post => {
         post.time_ago = this.timeInstance.format(post.time_stamp);
     });*/
   }
+
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BorrowRequestComponent } from './borrow-request.component';
+import { FeedPageComponent } from './feed-page.component';
 
-describe('BorrowRequestComponent', () => {
-  let component: BorrowRequestComponent;
-  let fixture: ComponentFixture<BorrowRequestComponent>;
+describe('FeedPageComponent', () => {
+  let component: FeedPageComponent;
+  let fixture: ComponentFixture<FeedPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BorrowRequestComponent ]
+      declarations: [ FeedPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BorrowRequestComponent);
+    fixture = TestBed.createComponent(FeedPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

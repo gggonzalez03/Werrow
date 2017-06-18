@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfileService } from './user-profile.service'
-import { BorrowRequest } from '../borrow-request/borrow-request';
+import { BorrowRequest } from '../../models/borrow-request';
 
 @Component({
   selector: 'app-user-profile',

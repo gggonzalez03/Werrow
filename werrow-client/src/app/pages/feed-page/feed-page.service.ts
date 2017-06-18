@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { BorrowRequest } from './borrow-request'
+import { BorrowRequest } from '../../models/borrow-request';
 
 @Injectable()
-export class BorrowRequestService {
+export class FeedPageService {
+
   constructor(
     private http: Http
   ) { }
