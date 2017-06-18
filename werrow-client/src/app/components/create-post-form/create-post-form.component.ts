@@ -1,15 +1,15 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import 'rxjs/add/operator/switchMap';
-import { BorrowRequest } from '../borrow-request';
-import { BorrowRequestService } from '../borrow-request.service'
+import { BorrowRequest } from '../../models/borrow-request';
+import { CreatePostFormService } from './create-post-form.service'
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css']
+  selector: 'app-create-post-form',
+  templateUrl: './create-post-form.component.html',
+  styleUrls: ['./create-post-form.component.css']
 })
-export class CreatePostComponent implements OnInit {
+export class CreatePostFormComponent implements OnInit {
 
   createPostForm: FormGroup;
 
@@ -17,7 +17,7 @@ export class CreatePostComponent implements OnInit {
   postBorrowMode = false;
 
   constructor(
-    private borrowRequestService: BorrowRequestService
+    private createPostFormService: CreatePostFormService
   ) { }
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class CreatePostComponent implements OnInit {
     newUserPost.item_name = this.createPostForm.value.item_name;
     newUserPost.reason = this.createPostForm.value.reason;
 
-    this.borrowRequestService.createBorrowPost(newUserPost)
+    this.createPostFormService.createBorrowPost(newUserPost)
     .then(result => {
       console.log(result);
       this.createPostEvent.emit()

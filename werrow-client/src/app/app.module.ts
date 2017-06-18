@@ -11,15 +11,14 @@ import { BorrowRequestService } from './pages/borrow-request/borrow-request.serv
 import { GoogleMapService } from './google-map/google-map.service';
 import { HeaderService } from './header/header.service';
 import { UserProfileService } from './pages/user-profile/user-profile.service'
-import { CreatePostService } from './pages/borrow-request/create-post/create-post.service';
 import { ShowPostService } from './pages/borrow-request/show-post/show-post.service';
 import { SignUpFormService } from './components/sign-up-form/sign-up-form.service';
 import { LoginFormService } from './components/login-form/login-form.service';
 import { LogoutButtonService } from './components/logout-button/logout-button.service';
+import { CreatePostFormService } from './components/create-post-form/create-post-form.service';
 import { BorrowRequestComponent } from './pages/borrow-request/borrow-request.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { CreatePostComponent } from './pages/borrow-request/create-post/create-post.component';
 import { ShowPostComponent } from './pages/borrow-request/show-post/show-post.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { HeaderComponent } from './header/header.component';
@@ -31,6 +30,7 @@ import { UserProfileRecordComponent } from './pages/user-profile/user-profile-re
 import { SignUpComponent } from './pages/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { CreatePostFormComponent } from './components/create-post-form/create-post-form.component';
 
 
 @NgModule({
@@ -38,7 +38,6 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
     AppComponent,
     BorrowRequestComponent,
     SignUpFormComponent,
-    CreatePostComponent,
     ShowPostComponent,
     GoogleMapComponent,
     HeaderComponent,
@@ -50,7 +49,8 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
     SignUpComponent,
     LoginPageComponent,
     LoginFormComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    CreatePostFormComponent
   ],
   imports: [
     BrowserModule,
@@ -83,11 +83,11 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
     GoogleMapService,
     HeaderService,
     UserProfileService,
-    CreatePostService,
     ShowPostService,
     SignUpFormService,
     LoginFormService,
-    LogoutButtonService
+    LogoutButtonService,
+    CreatePostFormService
   ],
   bootstrap: [AppComponent]
 })

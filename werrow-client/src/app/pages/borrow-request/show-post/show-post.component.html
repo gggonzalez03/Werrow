@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-create-post (createPostEvent)="getAllBorrowPosts()"></app-create-post>
+<app-create-post-form (createPostEvent)="getAllBorrowPosts()"></app-create-post-form>
 <div class="wrw-feed-cards" name="borrowPosts">
     <app-feed-card *ngFor="let post of borrowPosts" [feedCard]="post"></app-feed-card>
 </div>

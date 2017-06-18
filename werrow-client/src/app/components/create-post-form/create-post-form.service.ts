@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { BorrowRequest } from '../borrow-request'
+import { BorrowRequest } from '../../models/borrow-request'
 
 @Injectable()
-export class CreatePostService {
+export class CreatePostFormService {
 
   constructor(
     private http: Http
