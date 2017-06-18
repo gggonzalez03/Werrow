@@ -9,7 +9,7 @@ import { SignUpService } from './pages/sign-up-page/sign-up-page.service';
 import { LoginPageService } from './pages/login-page/login-page.service';
 import { GoogleMapService } from './components/google-map/google-map.service';
 import { HeaderService } from './components/header/header.service';
-import { UserProfileService } from './pages/user-profile/user-profile.service'
+import { UserProfilePageService } from './pages/user-profile-page/user-profile-page.service'
 import { SignUpFormService } from './components/sign-up-form/sign-up-form.service';
 import { LoginFormService } from './components/login-form/login-form.service';
 import { LogoutButtonService } from './components/logout-button/logout-button.service';
@@ -20,10 +20,10 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
 import { FeedCardComponent } from './components/feed-card/feed-card.component';
-import { UserProfileHeaderComponent } from './pages/user-profile/user-profile-header/user-profile-header.component';
-import { UserProfileRecordComponent } from './pages/user-profile/user-profile-record/user-profile-record.component';
+import { UserProfileHeaderComponent } from './components/user-profile-header/user-profile-header.component';
+import { UserProfileRecordComponent } from './components/user-profile-record/user-profile-record.component';
 import { SignUpComponent } from './pages/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
@@ -38,7 +38,7 @@ import { FeedPageComponent } from './pages/feed-page/feed-page.component';
     GoogleMapComponent,
     HeaderComponent,
     FooterComponent,
-    UserProfileComponent,
+    UserProfilePageComponent,
     FeedCardComponent,
     UserProfileHeaderComponent,
     UserProfileRecordComponent,
@@ -69,7 +69,7 @@ import { FeedPageComponent } from './pages/feed-page/feed-page.component';
       },
       {
         path: 'profile',
-        component: UserProfileComponent
+        component: UserProfilePageComponent
       }
     ])
   ],
@@ -78,7 +78,7 @@ import { FeedPageComponent } from './pages/feed-page/feed-page.component';
     LoginPageService,
     GoogleMapService,
     HeaderService,
-    UserProfileService,
+    UserProfilePageService,
     SignUpFormService,
     LoginFormService,
     LogoutButtonService,

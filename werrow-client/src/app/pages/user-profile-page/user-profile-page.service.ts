@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Injectable()
-export class UserProfileService {
+export class UserProfilePageService {
 
   constructor(
     private http: Http
