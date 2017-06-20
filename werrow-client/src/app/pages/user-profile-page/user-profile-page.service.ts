@@ -14,4 +14,9 @@ export class UserProfilePageService {
     .map(data => data.json()).toPromise();
   }
 
+  getCurrentUser() {
+    return this.http.get('/api/user/currentuser')
+    .map(data => data.json()).toPromise();
+  }
+
 }

@@ -5,7 +5,7 @@ export class User {
     public name: string = "",
     public email: string = "",
     public password: string = "",
-    public photo: string = "",
+    public photo: string = "assets/img/user.png",
     public address: Address = new Address()
   ){}
 }

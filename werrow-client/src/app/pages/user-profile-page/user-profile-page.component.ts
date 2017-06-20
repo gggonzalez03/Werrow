@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfilePageService } from './user-profile-page.service'
 import { BorrowRequest } from '../../models/borrow-request';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-user-profile-page',
@@ -10,6 +11,7 @@ import { BorrowRequest } from '../../models/borrow-request';
 export class UserProfilePageComponent implements OnInit {
 
   borrowPosts: Array<BorrowRequest> = [];
+  currentUser: User = new User();
 
   constructor(
     private userProfileService: UserProfilePageService
@@ -17,6 +19,7 @@ export class UserProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentUserPosts();
+    this.getCurrentUser();
   }
 
   getCurrentUserPosts() {
@@ -26,6 +29,12 @@ export class UserProfilePageComponent implements OnInit {
     /*borrowPosts.forEach(post => {
         post.time_ago = this.timeInstance.format(post.time_stamp);
     });*/
+  }
+
+  getCurrentUser() {
+    this.userProfileService.getCurrentUser()
+    .then(result => this.currentUser = result.user)
+    .catch(err => console.log(err));
   }
 
 }

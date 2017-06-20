@@ -38,6 +38,7 @@ routes.post('/create', (req, res) => {
       User.create(req.body, (err, user) => {
         if (!err) {
           user.password = undefined;
+          user._id = undefined;
           req.session.user = user;
           console.log(user);
           res.status(201).json({
@@ -111,6 +112,7 @@ routes.get('/logout', (req, res) => {
 
 routes.get('/active', (req, res) => {
   var active = false;
+
   if (req.session.user) {
     active = true;
   }
@@ -118,6 +120,17 @@ routes.get('/active', (req, res) => {
   res.status(200).json({
     status: "200",
     active: active
+  });
+});
+
+routes.get('/currentuser', (req, res) => {
+  var user;
+  if (req.session.user) {
+    user = req.session.user;
+  }
+
+  res.status(200).json({
+    user: user
   });
 });
 
