@@ -4,6 +4,15 @@ var path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const mongoose = require("mongoose");
+mongoose.connect('mongodb://localhost:27017/werrow', function(err, res){
+  if (err) {
+    console.log("Could not connect to the database");
+  }
+  else {
+    console.log("Successfully connected to the database");
+  }
+});
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
