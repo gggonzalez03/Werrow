@@ -23,7 +23,9 @@ app.use(bodyParser.json());
 app.use(session({
   secret: "Your secret key",
   duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000
+  activeDuration: 5 * 60 * 1000,
+  resave: false,
+  saveUninitialized: true,
 }));
 
 const api = require('./routes/api');
