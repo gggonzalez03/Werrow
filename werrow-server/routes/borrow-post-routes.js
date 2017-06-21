@@ -47,6 +47,7 @@ routes.get('/borrows/user', (req, res) => {
   console.log(req.session.user._id);
   BorrowPost.find({user_id: req.session.user._id})
   .populate('user_id', ['name', 'email', 'photo', 'address'])
+  .sort('-time_stamp')
   .exec((err, borrow) => {
     if (!err) {
       res.status(200).json({
