@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const mongoose = require("mongoose");
+
+mongoose.Promise = require('bluebird');
+
 mongoose.connect('mongodb://localhost:27017/werrow', function(err, res){
   if (err) {
     console.log("Could not connect to the database");
