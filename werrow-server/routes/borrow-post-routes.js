@@ -4,7 +4,8 @@ const routes = require('express').Router();
 routes.post('/create', (req, res) => {
   req.body._id = undefined;
   req.body.user_id = req.session.user._id;
-  console.log(req.session.user._id);
+  console.log(req.body);
+  console.log(req.session.user);
 
   BorrowPost.create(req.body, (err, user) => {
     if (!err) {

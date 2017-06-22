@@ -38,9 +38,7 @@ routes.post('/create', (req, res) => {
       User.create(req.body, (err, user) => {
         if (!err) {
           user.password = undefined;
-          user._id = undefined;
           req.session.user = user;
-          console.log(user);
           res.status(201).json({
             status: "201",
             message: "Resource Created."
