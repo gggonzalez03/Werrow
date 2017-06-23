@@ -29,6 +29,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { CreatePostFormComponent } from './components/create-post-form/create-post-form.component';
 import { FeedPageComponent } from './pages/feed-page/feed-page.component';
+import { PostCommentCardComponent } from './components/post-comment-card/post-comment-card.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { FeedPageComponent } from './pages/feed-page/feed-page.component';
     LoginFormComponent,
     LogoutButtonComponent,
     CreatePostFormComponent,
-    FeedPageComponent
+    FeedPageComponent,
+    PostCommentCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,75 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 0px) {
+    .wrw-comment-card {
+    margin:10px;
+    background-color:rgb(217,226,235);
+    padding:0px;
+    }
+
+    .wrw-comment-card-absolute-inner {
+    position:absolute;
+    height:inherit;
+    width:inherit;
+    }
+
+    .wrw-profile-photo {
+    width:50px;
+    height:50px;
+    margin:5px;
+    }
+
+    .wrw-inline {
+    display:inline;
+    }
+
+    .wrw-comment-data {
+    margin:5px;
+    display:inline-block;
+    vertical-align:top;
+    width:calc(100% - 100px);
+    }
+
+    .wrw-user-name {
+    padding:0px;
+    margin:0px;
+    }
+
+    .wrw-post-info {
+    font-size:12px;
+    }
+
+    .wrw-delete-btn {
+    float:right;
+    margin:5px;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  .wrw-comment-card {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.wrw-comment-card {
+    width: 60%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .wrw-comment-card {
+    width: 40%;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
