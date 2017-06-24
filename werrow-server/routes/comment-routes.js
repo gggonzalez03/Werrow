@@ -8,9 +8,21 @@ routes.post('/create', (req, res) => {
   req.body.user_id = req.session.user._id;
   Comment.create(req.body, (err, comment) => {
     if (!err) {
-      res.status(200).json({
-        status: "200",
-        comment: req.body
+      Comment.find({_id: comment._id})
+      .populate('user_id', ['name', 'photo'])
+      .exec((err, commentWithUser) => {
+        if (!err) {
+          res.status(200).json({
+            status: "200",
+            comment: commentWithUser[0]
+          })
+        }
+        else {
+          res.status(500).json({
+            status: "500",
+            message: "Something went wrong"
+          });
+        }
       })
     }
     else {

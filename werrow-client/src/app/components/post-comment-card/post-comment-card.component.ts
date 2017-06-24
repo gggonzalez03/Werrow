@@ -33,7 +33,11 @@ export class PostCommentCardComponent implements OnInit {
     newComment.borrow_post_id = this.postId;
 
     this.postCommentCardService.addComment(newComment)
-    .then(result => console.log(result))
+    .then(result => {
+      console.log(result);
+      this.comments.unshift(result.comment);
+      this.commentForm.reset();
+    })
     .catch(err => console.log(err));
   }
 
