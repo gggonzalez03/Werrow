@@ -1,5 +1,8 @@
 <app-header></app-header>
 <app-create-post-form (createPostEvent)="getAllBorrowPosts()"></app-create-post-form>
-<div class="wrw-feed-cards" name="borrowPosts">
-    <app-feed-card *ngFor="let post of borrowPosts" [feedCard]="post"></app-feed-card>
+<div *ngFor="let post of borrowPosts" class="wrw-feed-cards" name="borrowPosts">
+    <app-feed-card [feedCard]="post"></app-feed-card>
+    <div id="wrw-comment-section">
+        <app-post-comment-card [postId]="post._id"></app-post-comment-card>
+    </div>
 </div>

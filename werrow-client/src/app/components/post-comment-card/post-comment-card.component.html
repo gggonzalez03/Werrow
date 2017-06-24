@@ -1,12 +1,16 @@
-<div class="wrw-comment-card"><img src="assets/img/user.png" class="wrw-profile-photo">
+<form class="input-group" id="wrw-add-comment" (ngSubmit)="addComment()" [formGroup]="commentForm">
+  <div class="input-group-addon"><span><i class="glyphicon glyphicon-asterisk"></i></span></div>
+  <input formControlName="comment" name="comment" class="form-control" type="text" placeholder="Write a comment...">
+  <div class="input-group-btn">
+    <button class="btn btn-default" type="submit">Post </button>
+  </div>
+</form>
+<div class="wrw-comment-card" *ngFor="let comment of comments"><img src="{{ comment.user_id.photo }}" class="wrw-profile-photo">
   <div class="wrw-comment-data">
-    <h4 class="wrw-user-name">Ging Gonzalez</h4>
+    <h4 class="wrw-user-name">{{ comment.user_id.name }}</h4>
     <p class="wrw-inline wrw-post-info"><i class="glyphicon glyphicon-time"></i> time ago</p>
     <p class="wrw-inline wrw-post-info"><i class="glyphicon glyphicon-map-marker"></i> 0 miles </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    <p>{{ comment.comment }}</p>
   </div>
   <a href="#" class="wrw-delete-btn"><i class="fa fa-close"></i></a>
 </div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Comment } from '../../models/comment';
+import { PostCommentCardService } from './post-comment-card.service';
 
 @Component({
   selector: 'app-post-comment-card',
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCommentCardComponent implements OnInit {
 
-  constructor() { }
+  commentForm: FormGroup;
+  @Input() postId: string;
+  @Input() comments: Array<Comment>;
+
+  constructor(
+    private postCommentCardService: PostCommentCardService
+  ) { }
 
   ngOnInit() {
+    this.commentForm = new FormGroup({
+      comment: new FormControl()
+    })
+
+    this.getPostComments();
+  }
+
+  addComment() {
+    let newComment = new Comment();
+
+    newComment.comment = this.commentForm.value.comment;
+    newComment.borrow_post_id = this.postId;
+
+    this.postCommentCardService.addComment(newComment)
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+  }
+
+  getPostComments() {
+    this.postCommentCardService.getPostComments(this.postId)
+    .then(result => {
+      this.comments = result.data;
+    })
+    .catch(err => console.log(err));
   }
 
 }
