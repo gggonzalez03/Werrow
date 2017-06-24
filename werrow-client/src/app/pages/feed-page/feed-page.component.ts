@@ -11,6 +11,7 @@ import timeago from 'timeago.js';
 export class FeedPageComponent implements OnInit {
 
   borrowPosts: Array<BorrowRequest> = [];
+  showCommentsOf: BorrowRequest;
 
   constructor(
     private feedPageService: FeedPageService
@@ -31,6 +32,15 @@ export class FeedPageComponent implements OnInit {
     /*borrowPosts.forEach(post => {
         post.time_ago = this.timeInstance.format(post.time_stamp);
     });*/
+  }
+
+  showComments(showCommentsOf: BorrowRequest) {
+    if (this.showCommentsOf != showCommentsOf) {
+      this.showCommentsOf = showCommentsOf;
+    }
+    else {
+      this.showCommentsOf = undefined;
+    }
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BorrowRequest } from '../../models/borrow-request';
 import timeago from 'timeago.js';
 
@@ -10,6 +10,7 @@ import timeago from 'timeago.js';
 export class FeedCardComponent implements OnInit {
 
   @Input() feedCard: BorrowRequest;
+  @Output() showCommentsEvent = new EventEmitter();
 
   timeInstance = timeago();
   private static idToShowMapOf: string;
@@ -17,6 +18,10 @@ export class FeedCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showComments() {
+    this.showCommentsEvent.emit(this.feedCard);
   }
 
   setIdToShowMapOf(postId: string) {
