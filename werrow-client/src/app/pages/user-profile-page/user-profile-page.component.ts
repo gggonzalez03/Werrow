@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserProfilePageService } from './user-profile-page.service'
+import { BorrowRequestService } from '../../services/borrow-request.service';
+import { UserService } from '../../services/user.service';
 import { BorrowRequest } from '../../models/borrow-request';
 import { User } from '../../models/user';
 
@@ -14,7 +15,8 @@ export class UserProfilePageComponent implements OnInit {
   currentUser: User = new User();
 
   constructor(
-    private userProfileService: UserProfilePageService
+    private borrowRequestService: BorrowRequestService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -23,7 +25,7 @@ export class UserProfilePageComponent implements OnInit {
   }
 
   getCurrentUserPosts() {
-    this.userProfileService.getCurrentUserPosts()
+    this.borrowRequestService.getCurrentUserPosts()
     .then(result => this.borrowPosts = result.data)
     .catch(err => console.log(err));
     /*borrowPosts.forEach(post => {
@@ -32,7 +34,7 @@ export class UserProfilePageComponent implements OnInit {
   }
 
   getCurrentUser() {
-    this.userProfileService.getCurrentUser()
+    this.userService.getCurrentUser()
     .then(result => this.currentUser = result.user)
     .catch(err => console.log(err));
   }

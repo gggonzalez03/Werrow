@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FeedPageService } from './feed-page.service'
+import { BorrowRequestService } from '../../services/borrow-request.service';
 import { CommentService } from '../../services/comment.service';
 import { BorrowRequest } from '../../models/borrow-request';
 import { Comment } from '../../models/comment';
@@ -17,7 +17,7 @@ export class FeedPageComponent implements OnInit {
   showCommentsOf: BorrowRequest;
 
   constructor(
-    private feedPageService: FeedPageService,
+    private borrowRequestService: BorrowRequestService,
     private commentService: CommentService
   ) { }
 
@@ -30,7 +30,7 @@ export class FeedPageComponent implements OnInit {
   // Gets all posts by asking BorrowRequestService to look up
   // the database
   getAllBorrowPosts() {
-    this.feedPageService.getAllBorrowPosts()
+    this.borrowRequestService.getAllBorrowPosts()
     .then(result => this.borrowPosts = result.data)
     .catch(err => console.log(err))
     /*borrowPosts.forEach(post => {

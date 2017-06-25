@@ -3,15 +3,14 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 import { AppComponent } from './app.component';
-import { SignUpService } from './pages/sign-up-page/sign-up-page.service';
-import { LoginPageService } from './pages/login-page/login-page.service';
 import { GoogleMapService } from './components/google-map/google-map.service';
-import { UserProfilePageService } from './pages/user-profile-page/user-profile-page.service';
-import { CreatePostFormService } from './components/create-post-form/create-post-form.service';
-import { FeedPageService } from './pages/feed-page/feed-page.service';
 import { UserService } from './services/user.service';
+import { BorrowRequestService } from './services/borrow-request.service';
 import { CommentService } from './services/comment.service';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -74,14 +73,10 @@ import { PostCommentCardComponent } from './components/post-comment-card/post-co
     ])
   ],
   providers: [
-    SignUpService,
-    LoginPageService,
     GoogleMapService,
-    UserProfilePageService,
-    CreatePostFormService,
-    FeedPageService,
     UserService,
-    CommentService
+    CommentService,
+    BorrowRequestService
   ],
   bootstrap: [AppComponent]
 })

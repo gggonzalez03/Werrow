@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class UserService {
@@ -24,6 +22,11 @@ export class UserService {
     // Validate the logged in user
     isUserValidLogin() {
         return this.http.get('/api/user/active')
+        .map(data => data.json()).toPromise();
+    }
+
+    getCurrentUser() {
+        return this.http.get('/api/user/currentuser')
         .map(data => data.json()).toPromise();
     }
 
