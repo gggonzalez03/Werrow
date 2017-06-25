@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LogoutButtonService } from './logout-button.service';
+import { UserService } from '../../services/user.service';
 import { Router } from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class LogoutButtonComponent implements OnInit {
 
   constructor(
-    private logoutButtonService: LogoutButtonService,
+    private userService: UserService,
     private router: Router
   ) { }
 
@@ -18,7 +18,7 @@ export class LogoutButtonComponent implements OnInit {
   }
 
   logoutUser() {
-    this.logoutButtonService.logoutUser()
+    this.userService.logoutUser()
     .then(status => {
       console.log(status);
       this.router.navigate(['/login'])

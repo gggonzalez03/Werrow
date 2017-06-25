@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { SignUpFormService } from './sign-up-form.service';
+import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ export class SignUpFormComponent implements OnInit {
   signUpForm: FormGroup;
 
   constructor(
-    private signUpFormService: SignUpFormService,
+    private userService: UserService,
     private router: Router,
     private formBuilder: FormBuilder
   ) { }
@@ -40,7 +40,7 @@ export class SignUpFormComponent implements OnInit {
       newUser.password = this.signUpForm.value.password;
 
 
-      this.signUpFormService.createUser(newUser)
+      this.userService.createUser(newUser)
         .then(status => {
           console.log(status);
           this.router.navigate(['/home']);

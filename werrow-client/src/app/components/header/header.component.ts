@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderService } from './header.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   userActive: boolean = false;
 
   constructor(
-    private headerService: HeaderService
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   // Check if user is active and set userActive true or false
   isUserLoggedIn() {
-    this.headerService.isUserValidLogin()
+    this.userService.isUserValidLogin()
     .then((result) => {
       this.userActive = result.active;
     })

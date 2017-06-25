@@ -8,13 +8,10 @@ import { AppComponent } from './app.component';
 import { SignUpService } from './pages/sign-up-page/sign-up-page.service';
 import { LoginPageService } from './pages/login-page/login-page.service';
 import { GoogleMapService } from './components/google-map/google-map.service';
-import { HeaderService } from './components/header/header.service';
-import { UserProfilePageService } from './pages/user-profile-page/user-profile-page.service'
-import { SignUpFormService } from './components/sign-up-form/sign-up-form.service';
-import { LoginFormService } from './components/login-form/login-form.service';
-import { LogoutButtonService } from './components/logout-button/logout-button.service';
+import { UserProfilePageService } from './pages/user-profile-page/user-profile-page.service';
 import { CreatePostFormService } from './components/create-post-form/create-post-form.service';
 import { FeedPageService } from './pages/feed-page/feed-page.service';
+import { UserService } from './services/user.service';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
@@ -79,13 +76,10 @@ import { PostCommentCardComponent } from './components/post-comment-card/post-co
     SignUpService,
     LoginPageService,
     GoogleMapService,
-    HeaderService,
     UserProfilePageService,
-    SignUpFormService,
-    LoginFormService,
-    LogoutButtonService,
     CreatePostFormService,
     FeedPageService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
