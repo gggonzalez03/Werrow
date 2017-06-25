@@ -15,7 +15,6 @@ import { LoginFormService } from './components/login-form/login-form.service';
 import { LogoutButtonService } from './components/logout-button/logout-button.service';
 import { CreatePostFormService } from './components/create-post-form/create-post-form.service';
 import { FeedPageService } from './pages/feed-page/feed-page.service';
-import { PostCommentCardService } from './components/post-comment-card/post-comment-card.service';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
@@ -87,7 +86,6 @@ import { PostCommentCardComponent } from './components/post-comment-card/post-co
     LogoutButtonService,
     CreatePostFormService,
     FeedPageService,
-    PostCommentCardService
   ],
   bootstrap: [AppComponent]
 })
