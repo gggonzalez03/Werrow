@@ -1,10 +1,3 @@
-<form class="input-group" id="wrw-add-comment" (ngSubmit)="addComment()" [formGroup]="commentForm">
-  <div class="input-group-addon"><span><i class="glyphicon glyphicon-asterisk"></i></span></div>
-  <input formControlName="comment" name="comment" class="form-control" type="text" placeholder="Write a comment...">
-  <div class="input-group-btn">
-    <button class="btn btn-default" type="submit">Post </button>
-  </div>
-</form>
 <div class="wrw-comment-card" *ngFor="let comment of comments"><img src="{{ comment.user_id.photo }}" class="wrw-profile-photo">
   <div class="wrw-comment-data">
     <h4 class="wrw-user-name">{{ comment.user_id.name }}</h4>
@@ -14,3 +7,10 @@
   </div>
   <a href="#" class="wrw-delete-btn"><i class="fa fa-close"></i></a>
 </div>
+<form class="input-group" id="wrw-add-comment" (ngSubmit)="addComment()" [formGroup]="commentForm">
+  <div class="input-group-addon"><span><i class="glyphicon glyphicon-asterisk"></i></span></div>
+  <input formControlName="comment" name="comment" class="form-control" type="text" placeholder="Write a comment...">
+  <div class="input-group-btn">
+    <button class="btn btn-default" type="submit">Post </button>
+  </div>
+</form>

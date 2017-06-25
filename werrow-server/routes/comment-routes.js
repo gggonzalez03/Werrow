@@ -39,7 +39,7 @@ routes.post('/comments', (req, res) => {
     borrow_post_id: req.body.postId
   })
   .populate('user_id', ['name', 'photo'])
-  .sort('-time_stamp')
+  .sort('time_stamp')
   .exec((err, comments) => {
     if (!err) {
       res.status(200).json({

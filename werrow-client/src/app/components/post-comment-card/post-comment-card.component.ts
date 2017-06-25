@@ -35,7 +35,7 @@ export class PostCommentCardComponent implements OnInit {
     this.postCommentCardService.addComment(newComment)
     .then(result => {
       console.log(result);
-      this.comments.unshift(result.comment);
+      this.comments.push(result.comment);
       this.commentForm.reset();
     })
     .catch(err => console.log(err));
