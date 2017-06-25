@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedPageService } from './feed-page.service'
+import { CommentService } from '../../services/comment.service';
 import { BorrowRequest } from '../../models/borrow-request';
 import { Comment } from '../../models/comment';
 import timeago from 'timeago.js';
@@ -16,7 +17,8 @@ export class FeedPageComponent implements OnInit {
   showCommentsOf: BorrowRequest;
 
   constructor(
-    private feedPageService: FeedPageService
+    private feedPageService: FeedPageService,
+    private commentService: CommentService
   ) { }
 
   timeInstance = timeago();
@@ -37,7 +39,7 @@ export class FeedPageComponent implements OnInit {
   }
 
   addComment(comment: Comment) {
-    this.feedPageService.addComment(comment)
+    this.commentService.addComment(comment)
     .then(result => {
       console.log(result);
       this.comments.push(result.comment);
@@ -46,7 +48,7 @@ export class FeedPageComponent implements OnInit {
   }
 
   showComments(showCommentsOf: BorrowRequest) {
-    this.feedPageService.getPostComments(showCommentsOf._id)
+    this.commentService.getPostComments(showCommentsOf._id)
     .then(result => {
       this.comments = result.data;
     })

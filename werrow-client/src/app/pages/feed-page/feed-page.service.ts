@@ -26,17 +26,4 @@ export class FeedPageService {
     return this.http.get('/api/borrow/borrows')
     .map(data => data.json()).toPromise();
   }
-
-  addComment(comment: Comment) {
-    return this.http.post('/api/comment/create', comment)
-    .map(data => data.json()).toPromise();
-  }
-
-  getPostComments(postId: number) {
-    let data = {
-      postId: postId
-    }
-    return this.http.post('/api/comment/comments', data)
-    .map(data => data.json()).toPromise();
-  }
 }
