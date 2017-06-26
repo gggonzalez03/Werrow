@@ -62,4 +62,8 @@ export class FeedPageComponent implements OnInit {
     }
   }
 
+  createBorrowPost(borrowPost: BorrowRequest) {
+    this.borrowPosts.unshift(borrowPost);
+  }
+
 }

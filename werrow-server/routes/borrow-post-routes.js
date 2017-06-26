@@ -7,19 +7,23 @@ routes.post('/create', (req, res) => {
   console.log(req.body);
   console.log(req.session.user);
 
-  BorrowPost.create(req.body, (err, user) => {
-    if (!err) {
-      res.status(201).json({
-        status: "201",
-        message: "Resource Created."
-      });
-    }
-    else {
-      res.status(500).json({
-        status: "500",
-        message: "Internal Server Error."
-      });
-    }
+  BorrowPost.create(req.body, (err, borrowPost) => {
+    BorrowPost.populate(borrowPost, {path: 'user_id', select: 'name photo address'}, (err, populatedBorrowPost) => {
+      populatedBorrowPost.user_id.password = undefined;
+      if (!err) {
+        res.status(201).json({
+          status: "201",
+          message: "Resource Created.",
+          data: populatedBorrowPost
+        });
+      }
+      else {
+        res.status(500).json({
+          status: "500",
+          message: "Internal Server Error."
+        });
+      }
+    });
   });
 });
 

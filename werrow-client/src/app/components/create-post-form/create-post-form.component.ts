@@ -37,8 +37,7 @@ export class CreatePostFormComponent implements OnInit {
 
     this.borrowRequestService.createBorrowPost(newUserPost)
     .then(result => {
-      console.log(result);
-      this.createPostEvent.emit()
+      this.createPostEvent.emit(result.data);
     })
     .catch(err => console.log(err));
     this.postBorrowMode = false;

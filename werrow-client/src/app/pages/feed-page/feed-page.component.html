@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-create-post-form (createPostEvent)="getAllBorrowPosts()"></app-create-post-form>
+<app-create-post-form (createPostEvent)="createBorrowPost($event)"></app-create-post-form>
 <div *ngFor="let post of borrowPosts" class="wrw-feed-cards" name="borrowPosts">
     <app-feed-card [feedCard]="post" (showCommentsEvent)="showComments($event)"></app-feed-card>
     <div *ngIf="post == showCommentsOf" id="wrw-comment-section">
