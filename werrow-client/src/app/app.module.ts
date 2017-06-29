@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes }   from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
@@ -27,6 +26,7 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
 import { CreatePostFormComponent } from './components/create-post-form/create-post-form.component';
 import { FeedPageComponent } from './pages/feed-page/feed-page.component';
 import { PostCommentCardComponent } from './components/post-comment-card/post-comment-card.component';
+import { AppRoutingModule } from './app.routing';
 
 
 @NgModule({
@@ -53,24 +53,7 @@ import { PostCommentCardComponent } from './components/post-comment-card/post-co
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      {
-        path: 'signup',
-        component: SignUpComponent
-      },
-      {
-        path: 'login',
-        component: LoginPageComponent
-      },
-      {
-        path: 'home',
-        component: FeedPageComponent
-      },
-      {
-        path: 'profile',
-        component: UserProfilePageComponent
-      }
-    ])
+    AppRoutingModule
   ],
   providers: [
     GoogleMapService,
