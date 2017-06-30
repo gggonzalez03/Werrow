@@ -2,15 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { CoreModule } from './modules/core/core.module';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
 import { AppComponent } from './app.component';
-import { GoogleMapService } from './components/google-map/google-map.service';
-import { UserService } from './services/user.service';
-import { BorrowRequestService } from './services/borrow-request.service';
-import { CommentService } from './services/comment.service';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
@@ -53,14 +50,10 @@ import { AppRoutingModule } from './app.routing';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    CoreModule,
     AppRoutingModule
   ],
-  providers: [
-    GoogleMapService,
-    UserService,
-    CommentService,
-    BorrowRequestService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
