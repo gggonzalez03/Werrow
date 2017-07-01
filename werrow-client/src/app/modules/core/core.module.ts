@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { GoogleMapService } from '../../components/google-map/google-map.service';
 import { UserService } from '../../services/user.service';
 import { BorrowRequestService } from '../../services/borrow-request.service';
@@ -15,4 +15,11 @@ import { CommentService } from '../../services/comment.service';
         CommentService
     ],
 })
-export class CoreModule { }
+export class CoreModule {
+    constructor (@Optional() @SkipSelf() parentModule: CoreModule) {
+        if (parentModule) {
+            throw new Error(
+            'CoreModule is already loaded. Import it in the AppModule only');
+        }
+    }
+}
