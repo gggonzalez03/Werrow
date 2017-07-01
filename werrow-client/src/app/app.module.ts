@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CoreModule } from './modules/core/core.module';
+import { UserLoginModule } from './modules/user/user-login/user-login.module';
+import { UserSignupModule } from './modules/user/user-signup/user-signup.module';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
 import { AppComponent } from './app.component';
-import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -29,7 +29,6 @@ import { AppRoutingModule } from './app.routing';
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpFormComponent,
     GoogleMapComponent,
     HeaderComponent,
     FooterComponent,
@@ -39,7 +38,6 @@ import { AppRoutingModule } from './app.routing';
     UserProfileRecordComponent,
     SignUpComponent,
     LoginPageComponent,
-    LoginFormComponent,
     LogoutButtonComponent,
     CreatePostFormComponent,
     FeedPageComponent,
@@ -51,6 +49,8 @@ import { AppRoutingModule } from './app.routing';
     HttpModule,
     ReactiveFormsModule,
     CoreModule,
+    UserLoginModule,
+    UserSignupModule,
     AppRoutingModule
   ],
   providers: [],
