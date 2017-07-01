@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +13,16 @@ export class HeaderComponent implements OnInit {
   userActive: boolean = false;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.isUserLoggedIn();
+    this.router.events
+    .filter(event => event instanceof NavigationEnd)
+    .subscribe(() => {
+      this.isUserLoggedIn();
+    })
   }
 
   // Check if user is active and set userActive true or false

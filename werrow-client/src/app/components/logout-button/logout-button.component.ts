@@ -21,7 +21,7 @@ export class LogoutButtonComponent implements OnInit {
     this.userService.logoutUser()
     .then(status => {
       console.log(status);
-      this.router.navigate(['/login'])
+      this.router.navigate(['/user/login'])
     })
     .catch(err => console.log(err));
   }
