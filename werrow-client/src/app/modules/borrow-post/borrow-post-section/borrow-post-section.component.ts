@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { BorrowRequestService } from '../../services/borrow-request.service';
-import { CommentService } from '../../services/comment.service';
-import { BorrowRequest } from '../../models/borrow-request';
-import { Comment } from '../../models/comment';
+import { BorrowRequestService } from '../../../services/borrow-request.service';
+import { CommentService } from '../../../services/comment.service';
+import { BorrowRequest } from '../../../models/borrow-request';
+import { Comment } from '../../../models/comment';
 import timeago from 'timeago.js';
 
 @Component({
-  selector: 'app-feed-page',
-  templateUrl: './feed-page.component.html',
-  styleUrls: ['./feed-page.component.css']
+    selector: 'app-borrow-post-section',
+    templateUrl: 'borrow-post-section.component.html',
+    styleUrls: ['borrow-post-section.component.css']
 })
-export class FeedPageComponent implements OnInit {
+export class BorrowPostSectionComponent implements OnInit {
 
   borrowPosts: Array<BorrowRequest> = [];
   comments: Array<Comment> = [];

@@ -1,5 +1,5 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { GoogleMapService } from '../../components/google-map/google-map.service';
+import { GoogleMapService } from '../../services/google-map.service';
 import { UserService } from '../../services/user.service';
 import { BorrowRequestService } from '../../services/borrow-request.service';
 import { CommentService } from '../../services/comment.service';

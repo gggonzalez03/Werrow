@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { GoogleMapService } from './google-map.service';
-import { Address } from '../../models/address'
+import { GoogleMapService } from '../../services/google-map.service';
+import { Address } from '../../models/address';
 
 @Component({
   selector: 'app-google-map',
@@ -13,7 +13,7 @@ export class GoogleMapComponent implements OnInit {
   loggedInUserId: number;
   //userAnswer: boolean;
 
-  @Input() address: Address;
+  @Input() address: Address = new Address();
 
 
   constructor(

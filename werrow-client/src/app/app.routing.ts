@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FeedPageComponent } from './pages/feed-page/feed-page.component';
-import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
+// import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
 
 const routes: Routes = [
     {
@@ -11,12 +10,13 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: FeedPageComponent
-    },
-    {
-        path: 'profile',
-        component: UserProfilePageComponent
+        loadChildren: './modules/borrow-post/borrow-post-section/borrow-post-section.module#BorrowPostSectionModule'
     }
+    // ,
+    // {
+    //     path: 'profile',
+    //     component: UserProfilePageComponent
+    // }
 ];
 
 @NgModule({
