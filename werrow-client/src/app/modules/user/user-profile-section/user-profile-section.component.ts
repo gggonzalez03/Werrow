@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { BorrowRequestService } from '../../services/borrow-request.service';
-import { UserService } from '../../services/user.service';
-import { BorrowRequest } from '../../models/borrow-request';
-import { User } from '../../models/user';
+import { BorrowRequestService } from '../../../services/borrow-request.service';
+import { UserService } from '../../../services/user.service';
+import { BorrowRequest } from '../../../models/borrow-request';
+import { User } from '../../../models/user';
 
 @Component({
-  selector: 'app-user-profile-page',
-  templateUrl: './user-profile-page.component.html',
-  styleUrls: ['./user-profile-page.component.css']
+  selector: 'app-user-profile-section',
+  templateUrl: './user-profile-section.component.html',
+  styleUrls: ['./user-profile-section.component.css']
 })
-export class UserProfilePageComponent implements OnInit {
+export class UserProfileSectionComponent implements OnInit {
 
   borrowPosts: Array<BorrowRequest> = [];
   currentUser: User = new User();

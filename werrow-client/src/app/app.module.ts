@@ -10,8 +10,6 @@ import 'rxjs/add/operator/toPromise';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { UserProfileHeaderComponent } from './components/user-profile-header/user-profile-header.component';
-import { UserProfileRecordComponent } from './components/user-profile-record/user-profile-record.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { AppRoutingModule } from './app.routing';
 
@@ -21,8 +19,6 @@ import { AppRoutingModule } from './app.routing';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    UserProfileHeaderComponent,
-    UserProfileRecordComponent,
     LogoutButtonComponent,
   ],
   imports: [

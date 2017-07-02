@@ -12,11 +12,6 @@ const routes: Routes = [
         path: 'home',
         loadChildren: './modules/borrow-post/borrow-post-section/borrow-post-section.module#BorrowPostSectionModule'
     }
-    // ,
-    // {
-    //     path: 'profile',
-    //     component: UserProfilePageComponent
-    // }
 ];
 
 @NgModule({
