@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CoreModule } from './modules/core/core.module';
+import { SharedModule } from './modules/shared/shared.module';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { AppRoutingModule } from './app.routing';
 
@@ -18,7 +18,6 @@ import { AppRoutingModule } from './app.routing';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     LogoutButtonComponent,
   ],
   imports: [
@@ -27,6 +26,7 @@ import { AppRoutingModule } from './app.routing';
     HttpModule,
     ReactiveFormsModule,
     CoreModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [],
