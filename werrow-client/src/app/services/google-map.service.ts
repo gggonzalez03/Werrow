@@ -19,7 +19,7 @@ export class GoogleMapService {
     return this.getCurrentUser().address;
   }
 
-  getAddressByPostId(postId: number) {
+  getAddressByPostId(postId: string) {
     // TODO: Connect to database and get user of the postId(not current user)
     // and then return the address
     return this.getCurrentUser().address;

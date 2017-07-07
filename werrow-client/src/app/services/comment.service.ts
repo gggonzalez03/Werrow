@@ -13,7 +13,7 @@ export class CommentService {
         .map(data => data.json()).toPromise();
     }
 
-    getPostComments(postId: number) {
+    getPostComments(postId: string) {
         let data = {
             postId: postId
         }
