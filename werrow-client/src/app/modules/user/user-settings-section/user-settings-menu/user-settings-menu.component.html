@@ -3,13 +3,15 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Ging Gonzalez</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Profile</a>
+      <a class="mdl-navigation__link" [routerLink]="[{outlets: {'settings-menu':'profile'}}]" routerLinkActive="active">Profile</a>
       <a class="mdl-navigation__link" href="">Link</a>
       <a class="mdl-navigation__link" href="">Link</a>
       <a class="mdl-navigation__link" href="">Link</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
-    <div class="page-content"><!-- Your content goes here --></div>
+    <div class="page-content">
+      <router-outlet name="settings-menu"></router-outlet>
+    </div>
   </main>
 </div>
